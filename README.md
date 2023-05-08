@@ -87,11 +87,11 @@
 
 # 五）集成方式
 
-### - CocoaPods
+### 1）CocoaPods
 
 pod 'ScanHelper'
 
-### - 手动导入
+### 2）手动导入
 
 [ScanHelperSDK](https://github.com/a51095/ScanHelper/tree/main/lib)
 
@@ -99,20 +99,21 @@ pod 'ScanHelper'
 ###### 1)　下载静态资源包,`拷贝`导入到工程目录;
 ###### 2)　选中 `TARGETS` -> `Build Settings` -> `Framework Search Paths`;
 ###### 3)　配置添加进来的静态库路径;
-###### 4)　若报错,请尝试使用真机调试；
+###### 4)　配置证书,真机模式扫码调试;
 
 
 
 
-# 六）使用方法
+# 六）导入头文件
 
-###  `Swift`　工程
+###  1）`Swift` 项目
 	import ScanHelperSDK
-###  `Objective-C`　工程
+###  2）`Objective-C`　项目
 	#import <ScanHelperSDK/ScanHelperSDK-Swift.h>
 
+# 七）使用方法
 
-### - 基础使用（单一识别结果,默认使用方式）
+### 1）基础使用（单一识别结果,默认使用方式）
 
 ``` swift
 /// 让控制器持有scanHelper对象,不然会被提前释放
@@ -127,7 +128,7 @@ override func viewDidLoad() {
 }
 ```
 
-### - 进阶使用（动画效果,使用属性,调整扫描框样式）
+### 2）进阶使用（动画效果,使用属性,调整扫描框样式）
 
 ``` swift
 /// 让控制器持有scanHelper对象,不然会被提前释放
@@ -159,7 +160,7 @@ override func viewDidLoad() {
 }
 ```
 
-### - 高阶使用(自定义UI,及多个扫描结果)
+### 3）高阶使用(自定义UI、获取多个扫描结果)
 
 ``` swift
 class ScanHelperViewController: UIViewController, ScanHelperUIDelegate {
@@ -174,25 +175,26 @@ class ScanHelperViewController: UIViewController, ScanHelperUIDelegate {
         let config = ScanConfig()
         config.isUnrestrained = true
         
-        // ⚠️⚠️⚠️scanHandler回调,仅返回单一识别结果
+        // ⚠️⚠️⚠️scanHandler回调,仅获取单一扫描结果
+	// 通过代理方法，获取多个扫描结果
         scanHelper.delegate = self
         scanHelper.start(supView: view, scanConfig: config)
         
     }
     
-    // MARK: - 自定义底部视图(返回一个自定义view,从扫描框底部开始计算到父视图底部边缘区域视图)
+    // MARK: - 自定义底部视图(获取一个自定义view,从扫描框底部开始计算到父视图底部边缘区域视图)
     func scanLimit(_ bottomView: UIView) {
         bottomView.backgroundColor = .orange
     }
     
-    // MARK: - 完全自定义UI视图(返回一个自定义view,frame大小同父视图bounds)
+    // MARK: - 完全自定义UI视图(获取一个自定义view,frame大小同父视图bounds)
     func scanUnrestrained(_ fullView: UIView) {
         let v = UIView()
         v.frame = CGRect(x: 0, y: 0, width: 200, height: 200)
         fullView.addSubview(v)
     }
     
-    // MARK: - 返回一个亮度值
+    // MARK: - 获取一个亮度值
     func scanCaptureOutput(_ brightnessValue: Double) {
         print(brightnessValue)
     }
@@ -210,8 +212,9 @@ class ScanHelperViewController: UIViewController, ScanHelperUIDelegate {
 ```
 
 
-# 七）API引导
-### - 核心方法
+# 八）API引导
+
+### 1）核心方法
 
 ``` swift
 @objc @available(iOS 11.0, *)
@@ -233,7 +236,7 @@ func start(supView: UIView, scanConfig: ScanConfig, scanRegion: CGRect, scanType
 
 
 
-### - 代理方法
+### 2）代理方法
 
 ``` swift
 @objc @available(iOS 11.0, *)
@@ -257,7 +260,7 @@ optional func scanCaptureOutput(_ brightnessValue: Double)
 optional func scanMetadataOutput(_ values: Array<ScanResult>)
 ```
 
-### - 闪光灯
+### 3）闪光灯
 
 ``` swift
 @objc @available(iOS 11.0, *)
@@ -266,7 +269,7 @@ optional func scanMetadataOutput(_ values: Array<ScanResult>)
 optional func torchFlash(open: Bool)
 ```
 
-### - 识别照片内容api(可用于识别相册中二维码照片内容)
+### 4）识别照片内容api(可用于识别相册中二维码照片内容)
 
 ``` swift
 @objc @available(iOS 11.0, *)
