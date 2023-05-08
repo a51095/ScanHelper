@@ -1,0 +1,4 @@
+framework module ScanHelperSDK {
+  header "ScanHelperSDK-Swift.h"
+  requires objc
+}

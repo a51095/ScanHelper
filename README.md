@@ -1,0 +1,282 @@
+# ScanHelper
+### `Swift5.0`，基于系统API封装的扫描二维码、条形码、等多种条码扫描组件
+
+
+# 注意事项:
+### ⚠️⚠️⚠️真机环境运行⚠️⚠️⚠️
+
+###### 📣　platform:　`≥ iOS 11`
+###### 📣　language:　`Objective-C` 、`Swift`
+
+
+
+# 一）预览图
+
+
+
+- [默认样式](https://user-images.githubusercontent.com/29021369/135749766-db3ece15-19c2-4c76-bb38-8f43d51124d0.JPG)
+
+
+- [外悬样式](https://user-images.githubusercontent.com/29021369/135749785-12cc5d39-2450-4be1-a3d9-382e26ebb565.JPG)
+
+
+- [内嵌样式](https://user-images.githubusercontent.com/29021369/135749795-db065cd7-76fd-4ee8-998e-5e2529ca684b.JPG)
+
+
+- [底部View自定义预览](https://user-images.githubusercontent.com/29021369/136018974-4939a657-a32f-4dec-a1a9-06c9db860fd8.JPG)
+
+
+- [全部UI自定义预览](https://user-images.githubusercontent.com/29021369/136019235-45c7e752-2671-4f95-9ca3-c777ba6b2bd1.JPG)
+
+
+
+
+# 二）组件特性
+
+###### 💕　UI界面可完全自定义;
+###### 🎉　使用简单,犹如芊芊少女般丝滑、流畅;
+###### 🍀　严格遵守`Swift`代码规范,`Demo`工程`0`警告;
+###### 💥　无内存泄漏问题,合理释放对象，及时回收内存资源;
+###### 🏄　静态库`ScanHelperSDK.framework`,身轻如燕,仅`1.1`M大小;
+###### 🏆　轻量级,只开启基础使用功能,仅占用`12 ~ 16`个内存, 启用全部功能, 内存占用在`120 ~ 130`之间;
+
+
+
+# 三）功能列表
+
+|        key         |          type           |                   des                    |     true     |   false    |
+| :----------------: | :---------------------: | :--------------------------------------: | :----------: | :--------: |
+|      isSingle      |          bool           |       是否仅识别单一结果,默认true        |   单一结果   |  多个结果  |
+|      isSquare      |          bool           |       是否展示正方形边框,默认true        |     展示     |   不展示   |
+|    isSingleFocu    |          bool           |        是否开启单点聚焦,默认false        |     开启     |    关闭    |
+|    isAutoFocus     |          bool           |        是否开启自动对焦,默认true         |     开启     |  关闭   |
+|    isDoubleTap     |          bool           |        是否支持双击手势,默认true         |     支持     | 不支持  |
+|       isZoom       |          bool           |        是否支持缩放手势,默认true         |     支持     |  不支持 |
+|     isHasTorch     |          bool           |  是否支持光感检测,自动打开闪光灯,默认true  |     支持     |  不支持 |
+|      isLimit       |          bool           |        是否自定义底部UI,默认false        |    自定义    |   默认UI   |
+|   isUnrestrained   |          bool           |        是否完全自定义UI,默认false        |    自定义    |   默认UI   |
+|     isDebugDes     |          bool           |        是否打印调试信息,默认true         |     打印     |  不打印  |
+|    soundSource     |    (String, String)?    |         扫描提示音,默认nil         | 有效资源展示 | 默认不展示 |
+|   animationImage   |        UIImage？        |         扫描动画样式图,默认nil         | 有效资源展示 | 默认不显示 |
+| brightnessMinValue |         Double          |    自动开启闪光灯亮度对比值,默认true     | 小于此值开启 |   默认-1   |
+| brightnessMaxValue |         Double          |    自动关闭闪光灯亮度对比值,默认true     | 大于此值关闭 |   默认7    |
+|       preset       | AVCaptureSession.Preset |               扫描质量             | inputPriority  |    默认    |
+
+
+
+# 四）样式列表
+
+
+
+
+|       key        |      type      |                     des                     |
+| :--------------: | :------------: | :-----------------------------------------: |
+|      margin      |      Int       |          距离左右边界间距(默认60)           |
+|    lineHeight    |      Int       |         正方形边框粗细(默认0)         |
+|    lineColor     |    UIColor     |          正方形边框颜色(默认clear)          |
+|    angleColor    |    UIColor     |       正方形边框4个角颜色(默认orange)       |
+|   angleLength    |      Int       |      正方形边框4个角长度(默认30)      |
+|   angleHeight    |      Int       |      正方形边框4个角高度(默认4)       |
+|    angleStyle    |   AngleStyle   |        正方形边框边角样式(默认重合)         |
+|  animationStyle  | AnimationStyle |          扫码动画效果(默认无动画)           |
+|  autoFocuStyle   | AutoFocuStyle  |             自动聚焦样式（已设默认样式）     |
+|  animationImage  |    UIImage     | 扫码动画资源图片(可选值,若为空则无动画效果) |
+| unrecognizedArea |    UIColor     |    非识别区域背景色(默认黑色,0.5透明度)     |
+
+
+
+# 五）集成方式
+
+### - CocoaPods
+
+pod 'ScanHelper'
+
+### - 手动导入
+
+[ScanHelperSDK](https://github.com/a51095/ScanHelper/tree/main/lib)
+
+
+###### 1)　下载静态资源包,`拷贝`导入到工程目录;
+###### 2)　选中 `TARGETS` -> `Build Settings` -> `Framework Search Paths`;
+###### 3)　配置添加进来的静态库路径;
+###### 4)　若报错,请尝试使用真机调试；
+
+
+
+
+# 六）使用方法
+
+###  `Swift`　工程
+	import ScanHelperSDK
+###  `Objective-C`　工程
+	#import <ScanHelperSDK/ScanHelperSDK-Swift.h>
+
+
+### - 基础使用（单一识别结果,默认使用方式）
+
+``` swift
+/// 让控制器持有scanHelper对象,不然会被提前释放
+let scanHelper = ScanHelper()
+override func viewDidLoad() {
+	super.viewDidLoad()
+	scanHelper.start(supView: view) { [weak self] (res) in
+		guard let self = self else { return }
+		print(res)
+		self.navigationController?.popViewController(animated: true)
+	}
+}
+```
+
+### - 进阶使用（动画效果,使用属性,调整扫描框样式）
+
+``` swift
+/// 让控制器持有scanHelper对象,不然会被提前释放
+let scanHelper = ScanHelper()
+
+override func viewDidLoad() {
+	super.viewDidLoad()
+
+	var config = ScanConfig()
+        config.sound = Bundle.main.path(forResource: "scan_audio", ofType: "wav")
+        config.animationImage = UIImage(named: "scan_animation")
+	config.isAutoFocus = false
+	config.isHasTorch = false
+	config.isZoom = false
+	config.isSingle = false
+
+	config.scanStyle.lineColor = .purple
+	config.scanStyle.angleStyle = .OutLine
+        config.scanStyle.anmiationStyle = .LineCenter
+        config.scanStyle.autoFocuStyle.lineColor = .blue
+
+	// and so on ...
+
+	scanHelper.start(supView: view, scanConfig: config) { [weak self] (res) in
+		guard let self = self else { return }
+		print(res)
+		self.navigationController?.popViewController(animated: true)
+	}
+}
+```
+
+### - 高阶使用(自定义UI,及多个扫描结果)
+
+``` swift
+class ScanHelperViewController: UIViewController, ScanHelperUIDelegate {
+
+	/// 让控制器持有scanHelper对象,不然会被提前释放
+	let scanHelper = ScanHelper()
+
+	override func viewDidLoad() {
+	  super.viewDidLoad()
+	  defaultBackgroundColor()
+
+	  let config = ScanConfig()
+	  config.isUnrestrained = true
+
+	  // ⚠️⚠️⚠️scanHandler回调,仅返回单一识别结果
+	  scanHelper.delegate = self
+	  scanHelper.start(supView: view, scanConfig: config)
+
+	}
+
+	// MARK: - 自定义底部视图(返回一个自定义view,从扫描框底部开始计算到父视图底部边缘区域视图)
+	func scanLimit(_ bottomView: UIView) {
+		bottomView.backgroundColor = .orange
+	}
+
+	// MARK: - 完全自定义UI视图(返回一个自定义view,frame大小同父视图bounds)
+	func scanUnrestrained(_ fullView: UIView) {
+		let v = UIView()
+		v.frame = CGRect(x: 0, y: 0, width: 200, height: 200)
+		fullView.addSubview(v)
+	}
+
+	// MARK: - 返回一个亮度值
+	func scanCaptureOutput(_ brightnessValue: Double) {
+		print(brightnessValue) 
+	}
+
+	// MARK: - 多结果返回集合，ScanResult(⚠️⚠️⚠️仅多个结果才会执行此代理方法)
+	func scanMetadataOutput(_ values: Array<ScanResult>) {
+    print(values) 
+  }
+
+	// MARK: 反初始化器
+	deinit {
+		print("ScanHelperViewController deinit")
+	}
+}
+```
+
+
+# 七）API引导
+### - 核心方法
+
+``` swift
+@objc @available(iOS 11.0, *)
+/// Start scan
+/// - Parameters:
+///   - supView: an incoming parent view.
+///   - scanConfig: ScanConfig (Default: ScanConfig()).
+///   - scanRegion: valid scanning area. The default size is the same as that of the parent view.
+///   - scanType: the supported recognizable scanning types are the same as the system API by default.
+///   - scanHandler: scan result callback
+func start(supView: UIView, scanConfig: ScanConfig, scanRegion: CGRect, scanType: [AVMetadataObject.ObjectType], scanHandler: ((ScanResult) -> Void)?)
+```
+
+``` swift
+@available(iOS 11.0, *)
+/// Stop scan
+@objc func stop()
+```
+
+
+
+### - 代理方法
+
+``` swift
+@objc @available(iOS 11.0, *)
+/// Optional scanLimit
+/// - Parameter bottomView: a view from the bottom of the scan box to the bottom area of the parent view
+optional func scanLimit(_ bottomView: UIView)
+
+@objc @available(iOS 11.0, *)
+/// Optional scanUnrestrained
+/// - Parameter fullView: a view that is the same size as the parent view
+optional func scanUnrestrained(_ fullView: UIView)
+
+@objc @available(iOS 11.0, *)
+/// Optional scanCaptureOutput
+/// - Parameter brightnessValue: a brightness value
+optional func scanCaptureOutput(_ brightnessValue: Double)
+
+@objc @available(iOS 11.0, *)
+/// Optional scanMetadataOutput
+/// - Parameter values: a array of scan results
+optional func scanMetadataOutput(_ values: Array<ScanResult>)
+```
+
+### - 闪光灯
+
+``` swift
+@objc @available(iOS 11.0, *)
+/// Flash switch
+/// - Parameter open: a boolean value, the default is false
+optional func torchFlash(open: Bool)
+```
+
+### - 识别照片内容api(可用于识别相册中二维码照片内容)
+
+``` swift
+@objc @available(iOS 11.0, *)
+/// Identify the content information in the picture (for details, please refer to the relevant API of the system cidetector, where the QR code content is identified by default)
+/// - Parameters:
+///   - image: a valid picture.
+///   - ofType: the type is used to specify the detection intent. (Default: CIDetectorTypeQRCode)
+///   - context: the context argument specifies the CIContext to be used to operate on the image. may be nil. (Default: nil)
+///   - options: the options parameter lets you optinally specify a accuracy / performance tradeoff. can be nil or an empty dictionary. (Default: [[CIDetectorAccuracy: CIDetectorAccuracyHigh]]).
+/// - Returns: returns an array of CIFeature instances in the given image.
+optional func detector(image: UIImage, ofType: String, context: CIContext?, options: [String : Any]?) -> [CIFeature]?
+```
+
