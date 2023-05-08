@@ -6,7 +6,7 @@
 ### ⚠️⚠️⚠️真机环境运行⚠️⚠️⚠️
 
 ###### 📣　platform:　`≥ iOS 11`
-###### 📣　language:　`Objective-C` 、`Swift`
+###### 📣　language:　`Swift`、`Objective-C`
 
 
 
