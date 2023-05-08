@@ -59,7 +59,7 @@
 |    soundSource     |    (String, String)?    |         扫描提示音,默认nil         | 有效资源展示 | 默认不展示 |
 |   animationImage   |        UIImage？        |         扫描动画样式图,默认nil         | 有效资源展示 | 默认不显示 |
 | brightnessMinValue |         Double          |    自动开启闪光灯亮度对比值,默认true     | 小于此值开启 |   默认-1   |
-| brightnessMaxValue |         Double          |    自动关闭闪光灯亮度对比值,默认true     | 大于此值关闭 |   默认7    |
+| brightnessMaxValue |         Double          |    自动关闭闪光灯亮度对比值,默认true     | 大于此值关闭 |   默认6    |
 |       preset       | AVCaptureSession.Preset |               扫描质量             | inputPriority  |    默认    |
 
 
