@@ -163,49 +163,49 @@ override func viewDidLoad() {
 
 ``` swift
 class ScanHelperViewController: UIViewController, ScanHelperUIDelegate {
-
-	/// 让控制器持有scanHelper对象,不然会被提前释放
-	let scanHelper = ScanHelper()
-
-	override func viewDidLoad() {
-	  super.viewDidLoad()
-	  defaultBackgroundColor()
-
-	  let config = ScanConfig()
-	  config.isUnrestrained = true
-
-	  // ⚠️⚠️⚠️scanHandler回调,仅返回单一识别结果
-	  scanHelper.delegate = self
-	  scanHelper.start(supView: view, scanConfig: config)
-
-	}
-
-	// MARK: - 自定义底部视图(返回一个自定义view,从扫描框底部开始计算到父视图底部边缘区域视图)
-	func scanLimit(_ bottomView: UIView) {
-		bottomView.backgroundColor = .orange
-	}
-
-	// MARK: - 完全自定义UI视图(返回一个自定义view,frame大小同父视图bounds)
-	func scanUnrestrained(_ fullView: UIView) {
-		let v = UIView()
-		v.frame = CGRect(x: 0, y: 0, width: 200, height: 200)
-		fullView.addSubview(v)
-	}
-
-	// MARK: - 返回一个亮度值
-	func scanCaptureOutput(_ brightnessValue: Double) {
-		print(brightnessValue) 
-	}
-
-	// MARK: - 多结果返回集合，ScanResult(⚠️⚠️⚠️仅多个结果才会执行此代理方法)
-	func scanMetadataOutput(_ values: Array<ScanResult>) {
-    print(values) 
-  }
-
-	// MARK: 反初始化器
-	deinit {
-		print("ScanHelperViewController deinit")
-	}
+    
+    /// 让控制器持有scanHelper对象,不然会被提前释放
+    let scanHelper = ScanHelper()
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        defaultBackgroundColor()
+        
+        let config = ScanConfig()
+        config.isUnrestrained = true
+        
+        // ⚠️⚠️⚠️scanHandler回调,仅返回单一识别结果
+        scanHelper.delegate = self
+        scanHelper.start(supView: view, scanConfig: config)
+        
+    }
+    
+    // MARK: - 自定义底部视图(返回一个自定义view,从扫描框底部开始计算到父视图底部边缘区域视图)
+    func scanLimit(_ bottomView: UIView) {
+        bottomView.backgroundColor = .orange
+    }
+    
+    // MARK: - 完全自定义UI视图(返回一个自定义view,frame大小同父视图bounds)
+    func scanUnrestrained(_ fullView: UIView) {
+        let v = UIView()
+        v.frame = CGRect(x: 0, y: 0, width: 200, height: 200)
+        fullView.addSubview(v)
+    }
+    
+    // MARK: - 返回一个亮度值
+    func scanCaptureOutput(_ brightnessValue: Double) {
+        print(brightnessValue)
+    }
+    
+    // MARK: - 多结果返回集合，ScanResult(⚠️⚠️⚠️仅多个结果才会执行此代理方法)
+    func scanMetadataOutput(_ values: Array<ScanResult>) {
+        print(values)
+    }
+    
+    // MARK: 反初始化器
+    deinit {
+        print("ScanHelperViewController deinit")
+    }
 }
 ```
 
