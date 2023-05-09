@@ -5,8 +5,8 @@
 # 注意事项:
 ### ⚠️⚠️⚠️真机环境运行⚠️⚠️⚠️
 
-###### 📣　platform:　`≥ iOS 11`
-###### 📣　language:　`Swift`、`Objective-C`
+###### 📣📣📣　platform:　`≥ iOS 11`
+###### 📣📣📣　language:　`Swift`、`Objective-C`
 
 
 
@@ -89,7 +89,9 @@
 
 ### 1）CocoaPods
 
+```swift
 pod 'ScanHelper'
+```
 
 ### 2）手动导入
 
@@ -176,7 +178,7 @@ class ScanHelperViewController: UIViewController, ScanHelperUIDelegate {
         config.isUnrestrained = true
         
         // ⚠️⚠️⚠️scanHandler回调,仅获取单一扫描结果
-	// 通过代理方法，获取多个扫描结果
+	      // 通过代理方法，获取多个扫描结果
         scanHelper.delegate = self
         scanHelper.start(supView: view, scanConfig: config)
         
@@ -217,7 +219,7 @@ class ScanHelperViewController: UIViewController, ScanHelperUIDelegate {
 ### 1）核心方法
 
 ``` swift
-@objc @available(iOS 11.0, *)
+@available(iOS 11.0, *)
 /// Start scan
 /// - Parameters:
 ///   - supView: an incoming parent view.
@@ -225,7 +227,7 @@ class ScanHelperViewController: UIViewController, ScanHelperUIDelegate {
 ///   - scanRegion: valid scanning area. The default size is the same as that of the parent view.
 ///   - scanType: the supported recognizable scanning types are the same as the system API by default.
 ///   - scanHandler: scan result callback
-func start(supView: UIView, scanConfig: ScanConfig, scanRegion: CGRect, scanType: [AVMetadataObject.ObjectType], scanHandler: ((ScanResult) -> Void)?)
+@objc func start(supView: UIView, scanConfig: ScanConfig, scanRegion: CGRect, scanType: [AVMetadataObject.ObjectType], scanHandler: ((ScanResult) -> Void)?)
 ```
 
 ``` swift
@@ -239,40 +241,40 @@ func start(supView: UIView, scanConfig: ScanConfig, scanRegion: CGRect, scanType
 ### 2）代理方法
 
 ``` swift
-@objc @available(iOS 11.0, *)
+@available(iOS 11.0, *)
 /// Optional scanLimit
 /// - Parameter bottomView: a view from the bottom of the scan box to the bottom area of the parent view
-optional func scanLimit(_ bottomView: UIView)
+@objc optional func scanLimit(_ bottomView: UIView)
 
-@objc @available(iOS 11.0, *)
+@available(iOS 11.0, *)
 /// Optional scanUnrestrained
 /// - Parameter fullView: a view that is the same size as the parent view
-optional func scanUnrestrained(_ fullView: UIView)
+@objc optional func scanUnrestrained(_ fullView: UIView)
 
-@objc @available(iOS 11.0, *)
+@available(iOS 11.0, *)
 /// Optional scanCaptureOutput
 /// - Parameter brightnessValue: a brightness value
-optional func scanCaptureOutput(_ brightnessValue: Double)
+@objc optional func scanCaptureOutput(_ brightnessValue: Double)
 
-@objc @available(iOS 11.0, *)
+@available(iOS 11.0, *)
 /// Optional scanMetadataOutput
 /// - Parameter values: a array of scan results
-optional func scanMetadataOutput(_ values: Array<ScanResult>)
+@objc optional func scanMetadataOutput(_ values: Array<ScanResult>)
 ```
 
 ### 3）闪光灯
 
 ``` swift
-@objc @available(iOS 11.0, *)
+@available(iOS 11.0, *)
 /// Flash switch
 /// - Parameter open: a boolean value, the default is false
-optional func torchFlash(open: Bool)
+@objc optional func torchFlash(open: Bool)
 ```
 
 ### 4）识别照片内容api(可用于识别相册中二维码照片内容)
 
 ``` swift
-@objc @available(iOS 11.0, *)
+@available(iOS 11.0, *)
 /// Identify the content information in the picture (for details, please refer to the relevant API of the system cidetector, where the QR code content is identified by default)
 /// - Parameters:
 ///   - image: a valid picture.
@@ -280,6 +282,6 @@ optional func torchFlash(open: Bool)
 ///   - context: the context argument specifies the CIContext to be used to operate on the image. may be nil. (Default: nil)
 ///   - options: the options parameter lets you optinally specify a accuracy / performance tradeoff. can be nil or an empty dictionary. (Default: [[CIDetectorAccuracy: CIDetectorAccuracyHigh]]).
 /// - Returns: returns an array of CIFeature instances in the given image.
-optional func detector(image: UIImage, ofType: String, context: CIContext?, options: [String : Any]?) -> [CIFeature]?
+@objc optional func detector(image: UIImage, ofType: String, context: CIContext?, options: [String : Any]?) -> [CIFeature]?
 ```
 

@@ -308,6 +308,19 @@ typedef SWIFT_ENUM(NSInteger, AnimationStyle, open) {
   AnimationStyleNone = 2,
 };
 
+@class UIColor;
+
+SWIFT_CLASS("_TtC13ScanHelperSDK13AutoFocuStyle")
+@interface AutoFocuStyle : NSObject
+/// Border width (default 1)
+@property (nonatomic) CGFloat lineWidth;
+/// Centerline length (default 4)
+@property (nonatomic) CGFloat limitHeight;
+/// Border color (default orange)
+@property (nonatomic, strong) UIColor * _Nonnull lineColor;
+- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
+@end
+
 /// Scale enum, default is Small
 /// <em>Large</em>: enlarge
 /// <em>Small</em>: smaller
@@ -316,51 +329,79 @@ typedef SWIFT_ENUM(NSInteger, DoubleTapState, open) {
   DoubleTapStateSmall = 1,
 };
 
+@class NSString;
+@class UIImage;
+@class ScanStyle;
 
 SWIFT_CLASS("_TtC13ScanHelperSDK10ScanConfig")
 @interface ScanConfig : NSObject
+/// Only recognize a single result (default true)
+@property (nonatomic) BOOL isSingle;
+/// Show square borders (default true)
+@property (nonatomic) BOOL isSquare;
+/// Does it support double clicking gestures (default true)
+@property (nonatomic) BOOL isDoubleTap;
+/// Does it support scaling gestures (default true)
+@property (nonatomic) BOOL isZoom;
+/// Does it support light detection and automatically turn on the flash (default to true)
+@property (nonatomic) BOOL isHasTorch;
+/// Automatically turn on the brightness contrast value of the flash (default value is less than -1) [tested value range is around (-10~10)]
+@property (nonatomic) double brightnessMinValue;
+/// Automatically turn off the flash brightness contrast value (default to turn off when greater than 6)
+@property (nonatomic) double brightnessMaxValue;
+/// Scan quality (default not specified)
+@property (nonatomic) AVCaptureSessionPreset _Nonnull preset;
+/// Whether to play a prompt tone after successful scanning (default no sound, need to configure yourself)
+@property (nonatomic, copy) NSString * _Nullable sound;
+/// Scan animation style maps (default no animation, need to configure yourself)
+@property (nonatomic, strong) UIImage * _Nullable animationImage;
+/// Auto focus (default to true, mutually exclusive with isSingleFocu)
+@property (nonatomic) BOOL isAutoFocu;
+/// Does it support single point focusing (default false, mutually exclusive with isAutoFocu)
+@property (nonatomic) BOOL isSingleFocu;
+/// Default Scan Style
+@property (nonatomic, strong) ScanStyle * _Nonnull scanStyle;
+/// Bottom view customization (i.e. from the bottom border of the scan code to the bottom edge area of the parent view, default to false)
+@property (nonatomic) BOOL isLimit;
+/// View fully customizable (default false)
+@property (nonatomic) BOOL isUnrestrained;
+/// Print debugging information (default true)
+@property (nonatomic) BOOL isDebugDes;
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
+@end
+
+@protocol ScanHelperUIDelegate;
+
+SWIFT_CLASS("_TtC13ScanHelperSDK10ScanHelper")
+@interface ScanHelper : NSObject
+/// ScanHelperUIDelegate
+@property (nonatomic, weak) id <ScanHelperUIDelegate> _Nullable delegate;
+- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
+@end
+
+@class UIGestureRecognizer;
+@class AVCaptureOutput;
+@class AVCaptureConnection;
+@class AVCaptureMetadataOutput;
+@class AVMetadataObject;
+
+@interface ScanHelper (SWIFT_EXTENSION(ScanHelperSDK)) <AVCaptureMetadataOutputObjectsDelegate, AVCaptureVideoDataOutputSampleBufferDelegate, UIGestureRecognizerDelegate>
+- (BOOL)gestureRecognizer:(UIGestureRecognizer * _Nonnull)gestureRecognizer shouldBeRequiredToFailByGestureRecognizer:(UIGestureRecognizer * _Nonnull)otherGestureRecognizer SWIFT_WARN_UNUSED_RESULT;
+- (void)captureOutput:(AVCaptureOutput * _Nonnull)output didOutputSampleBuffer:(CMSampleBufferRef _Nonnull)sampleBuffer fromConnection:(AVCaptureConnection * _Nonnull)connection;
+- (void)captureOutput:(AVCaptureMetadataOutput * _Nonnull)output didOutputMetadataObjects:(NSArray<AVMetadataObject *> * _Nonnull)metadataObjects fromConnection:(AVCaptureConnection * _Nonnull)connection;
 @end
 
 @class UIView;
 @class ScanResult;
-@class UIImage;
-@class NSString;
 @class CIContext;
 @class CIFeature;
 
-SWIFT_PROTOCOL("_TtP13ScanHelperSDK18ScanHelperDelegate_")
-@protocol ScanHelperDelegate <AVCaptureMetadataOutputObjectsDelegate, AVCaptureVideoDataOutputSampleBufferDelegate, UIGestureRecognizerDelegate>
+@interface ScanHelper (SWIFT_EXTENSION(ScanHelperSDK))
 - (void)startWithSupView:(UIView * _Nonnull)supView scanConfig:(ScanConfig * _Nonnull)scanConfig scanRegion:(CGRect)scanRegion scanType:(NSArray<AVMetadataObjectType> * _Nonnull)scanType scanHandler:(void (^ _Nullable)(ScanResult * _Nonnull))scanHandler SWIFT_AVAILABILITY(ios,introduced=11.0);
 - (void)stop SWIFT_AVAILABILITY(ios,introduced=11.0);
-@optional
 - (void)torchFlashWithOpen:(BOOL)open SWIFT_AVAILABILITY(ios,introduced=11.0);
 - (NSArray<CIFeature *> * _Nullable)detectorWithImage:(UIImage * _Nonnull)image ofType:(NSString * _Nonnull)ofType context:(CIContext * _Nullable)context options:(NSDictionary<NSString *, id> * _Nullable)options SWIFT_WARN_UNUSED_RESULT SWIFT_AVAILABILITY(ios,introduced=11.0);
 @end
-
-@class UIGestureRecognizer;
-@class AVCaptureMetadataOutput;
-@class AVMetadataObject;
-@class AVCaptureConnection;
-@class AVCaptureOutput;
-
-/// ScanHelper Core Class
-SWIFT_CLASS("_TtC13ScanHelperSDK10ScanHelper")
-@interface ScanHelper : NSObject <ScanHelperDelegate>
-- (void)startWithSupView:(UIView * _Nonnull)supView scanConfig:(ScanConfig * _Nonnull)scanConfig scanRegion:(CGRect)scanRegion scanType:(NSArray<AVMetadataObjectType> * _Nonnull)scanType scanHandler:(void (^ _Nullable)(ScanResult * _Nonnull))scanHandler;
-/// stop scanning
-- (void)stop;
-/// Flash on / off
-- (void)torchFlashWithOpen:(BOOL)open;
-/// identify photo content (default identification QR code)
-- (NSArray<CIFeature *> * _Nullable)detectorWithImage:(UIImage * _Nonnull)image ofType:(NSString * _Nonnull)ofType context:(CIContext * _Nullable)context options:(NSDictionary<NSString *, id> * _Nullable)options SWIFT_WARN_UNUSED_RESULT;
-- (BOOL)gestureRecognizer:(UIGestureRecognizer * _Nonnull)gestureRecognizer shouldBeRequiredToFailByGestureRecognizer:(UIGestureRecognizer * _Nonnull)otherGestureRecognizer SWIFT_WARN_UNUSED_RESULT;
-/// AVCaptureMetadataOutputObjectsDelegate
-- (void)captureOutput:(AVCaptureMetadataOutput * _Nonnull)output didOutputMetadataObjects:(NSArray<AVMetadataObject *> * _Nonnull)metadataObjects fromConnection:(AVCaptureConnection * _Nonnull)connection;
-- (void)captureOutput:(AVCaptureOutput * _Nonnull)output didOutputSampleBuffer:(CMSampleBufferRef _Nonnull)sampleBuffer fromConnection:(AVCaptureConnection * _Nonnull)connection;
-- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
-@end
-
 
 
 SWIFT_PROTOCOL("_TtP13ScanHelperSDK20ScanHelperUIDelegate_")
@@ -384,6 +425,36 @@ SWIFT_CLASS("_TtC13ScanHelperSDK10ScanResult")
 @property (nonatomic) AVMetadataObjectType _Nonnull metadataType;
 - (nonnull instancetype)init SWIFT_UNAVAILABLE;
 + (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
+@end
+
+
+SWIFT_CLASS("_TtC13ScanHelperSDK9ScanStyle")
+@interface ScanStyle : NSObject
+/// Print debugging information (default printing)
+@property (nonatomic) BOOL isDebug;
+/// Distance from boundary spacing (default of 60)
+@property (nonatomic) NSInteger margin;
+/// Square border thickness (default of 0 pixels)
+@property (nonatomic) NSInteger lineHeight;
+/// Square border color (default clear)
+@property (nonatomic, strong) UIColor * _Nonnull lineColor;
+/// Square border with 4 corner colors (default orange)
+@property (nonatomic, strong) UIColor * _Nonnull angleColor;
+/// Square border with 4 corner lengths (default of 30 pixels)
+@property (nonatomic) NSInteger angleLength;
+/// Square border with 4 corner heights (default of 4 pixels)
+@property (nonatomic) NSInteger angleHeight;
+/// Square border corner style (default overlap)
+@property (nonatomic) enum AngleStyle angleStyle;
+/// Scan code animation effect (default no animation)
+@property (nonatomic) enum AnimationStyle anmiationStyle;
+/// Auto focus style (customizable through proxy methods)
+@property (nonatomic, strong) AutoFocuStyle * _Nonnull autoFocuStyle;
+/// Scanned animation resource image (optional value, if left blank, no animation effect)
+@property (nonatomic, strong) UIImage * _Nullable animationImage;
+/// Background color of non recognition areas (default black, 0.5 transparency)
+@property (nonatomic, strong) UIColor * _Nonnull unrecognizedArea;
+- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
 @end
 
 #endif

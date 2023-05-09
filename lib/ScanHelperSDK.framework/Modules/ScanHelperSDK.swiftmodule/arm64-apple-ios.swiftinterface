@@ -8,17 +8,8 @@ import Swift
 import UIKit
 import _Concurrency
 import _StringProcessing
-public func requestAccess(handler: @escaping (Swift.Bool) -> (Swift.Void))
 @objc public enum DoubleTapState : Swift.Int {
   case Large, Small
-  public init?(rawValue: Swift.Int)
-  public typealias RawValue = Swift.Int
-  public var rawValue: Swift.Int {
-    get
-  }
-}
-@objc public enum AnimationStyle : Swift.Int {
-  case LineMove, LineCenter, None
   public init?(rawValue: Swift.Int)
   public typealias RawValue = Swift.Int
   public var rawValue: Swift.Int {
@@ -33,74 +24,76 @@ public func requestAccess(handler: @escaping (Swift.Bool) -> (Swift.Void))
     get
   }
 }
+@objc public enum AnimationStyle : Swift.Int {
+  case LineMove, LineCenter, None
+  public init?(rawValue: Swift.Int)
+  public typealias RawValue = Swift.Int
+  public var rawValue: Swift.Int {
+    get
+  }
+}
 @_hasMissingDesignatedInitializers @objc public class ScanResult : ObjectiveC.NSObject {
   @objc public var value: Swift.String
   @objc public var metadataType: AVFoundation.AVMetadataObject.ObjectType
   @objc deinit
 }
-public struct AutoFocuStyle {
-  public var lineWidth: CoreFoundation.CGFloat
-  public var limitHeight: CoreFoundation.CGFloat
-  public var lineColor: UIKit.UIColor
-}
-public struct ScanStyle {
-  public var isDebug: Swift.Bool
-  public var margin: Swift.Int
-  public var lineHeight: Swift.Int
-  public var lineColor: UIKit.UIColor
-  public var angleColor: UIKit.UIColor
-  public var angleLength: Swift.Int
-  public var angleHeight: Swift.Int
-  public var angleStyle: ScanHelperSDK.AngleStyle
-  public var anmiationStyle: ScanHelperSDK.AnimationStyle
-  public var autoFocuStyle: ScanHelperSDK.AutoFocuStyle
-  public var animationImage: UIKit.UIImage?
-  public var unrecognizedArea: UIKit.UIColor
-}
-@_inheritsConvenienceInitializers @objc public class ScanConfig : ObjectiveC.NSObject {
-  public var isSingle: Swift.Bool
-  public var isSquare: Swift.Bool
-  public var isDoubleTap: Swift.Bool
-  public var isZoom: Swift.Bool
-  public var isHasTorch: Swift.Bool
-  public var brightnessMinValue: Swift.Double
-  public var brightnessMaxValue: Swift.Double
-  public var preset: AVFoundation.AVCaptureSession.Preset
-  public var sound: Swift.String?
-  public var animationImage: UIKit.UIImage? {
-    get
-    set
-  }
-  public var isAutoFocu: Swift.Bool {
-    get
-    set
-  }
-  public var isSingleFocu: Swift.Bool {
-    get
-    set
-  }
-  public var scanStyle: ScanHelperSDK.ScanStyle
-  public var isLimit: Swift.Bool
-  public var isUnrestrained: Swift.Bool {
-    get
-    set
-  }
-  public var isDebugDes: Swift.Bool {
-    get
-    set
-  }
+@_inheritsConvenienceInitializers @objc public class AutoFocuStyle : ObjectiveC.NSObject {
+  @objc public var lineWidth: CoreFoundation.CGFloat
+  @objc public var limitHeight: CoreFoundation.CGFloat
+  @objc public var lineColor: UIKit.UIColor
   @objc override dynamic public init()
   @objc deinit
 }
-@objc public protocol ScanHelperDelegate : AVFoundation.AVCaptureMetadataOutputObjectsDelegate, AVFoundation.AVCaptureVideoDataOutputSampleBufferDelegate, UIKit.UIGestureRecognizerDelegate {
-  @available(iOS 11.0, *)
-  @objc func start(supView: UIKit.UIView, scanConfig: ScanHelperSDK.ScanConfig, scanRegion: CoreFoundation.CGRect, scanType: [AVFoundation.AVMetadataObject.ObjectType], scanHandler: ((ScanHelperSDK.ScanResult) -> Swift.Void)?)
-  @available(iOS 11.0, *)
-  @objc func stop()
-  @available(iOS 11.0, *)
-  @objc optional func torchFlash(open: Swift.Bool)
-  @available(iOS 11.0, *)
-  @objc optional func detector(image: UIKit.UIImage, ofType: Swift.String, context: CoreImage.CIContext?, options: [Swift.String : Any]?) -> [CoreImage.CIFeature]?
+@_inheritsConvenienceInitializers @objc public class ScanStyle : ObjectiveC.NSObject {
+  @objc public var isDebug: Swift.Bool
+  @objc public var margin: Swift.Int
+  @objc public var lineHeight: Swift.Int
+  @objc public var lineColor: UIKit.UIColor
+  @objc public var angleColor: UIKit.UIColor
+  @objc public var angleLength: Swift.Int
+  @objc public var angleHeight: Swift.Int
+  @objc public var angleStyle: ScanHelperSDK.AngleStyle
+  @objc public var anmiationStyle: ScanHelperSDK.AnimationStyle
+  @objc public var autoFocuStyle: ScanHelperSDK.AutoFocuStyle
+  @objc public var animationImage: UIKit.UIImage?
+  @objc public var unrecognizedArea: UIKit.UIColor
+  @objc override dynamic public init()
+  @objc deinit
+}
+@_inheritsConvenienceInitializers @objc public class ScanConfig : ObjectiveC.NSObject {
+  @objc public var isSingle: Swift.Bool
+  @objc public var isSquare: Swift.Bool
+  @objc public var isDoubleTap: Swift.Bool
+  @objc public var isZoom: Swift.Bool
+  @objc public var isHasTorch: Swift.Bool
+  @objc public var brightnessMinValue: Swift.Double
+  @objc public var brightnessMaxValue: Swift.Double
+  @objc public var preset: AVFoundation.AVCaptureSession.Preset
+  @objc public var sound: Swift.String?
+  @objc public var animationImage: UIKit.UIImage? {
+    @objc get
+    @objc set
+  }
+  @objc public var isAutoFocu: Swift.Bool {
+    @objc get
+    @objc set
+  }
+  @objc public var isSingleFocu: Swift.Bool {
+    @objc get
+    @objc set
+  }
+  @objc public var scanStyle: ScanHelperSDK.ScanStyle
+  @objc public var isLimit: Swift.Bool
+  @objc public var isUnrestrained: Swift.Bool {
+    @objc get
+    @objc set
+  }
+  @objc public var isDebugDes: Swift.Bool {
+    @objc get
+    @objc set
+  }
+  @objc override dynamic public init()
+  @objc deinit
 }
 @objc public protocol ScanHelperUIDelegate : ObjectiveC.NSObjectProtocol {
   @available(iOS 11.0, *)
@@ -112,24 +105,32 @@ public struct ScanStyle {
   @available(iOS 11.0, *)
   @objc optional func scanMetadataOutput(_ values: Swift.Array<ScanHelperSDK.ScanResult>)
 }
-@_inheritsConvenienceInitializers @objc @_Concurrency.MainActor(unsafe) public class ScanHelper : ObjectiveC.NSObject, ScanHelperSDK.ScanHelperDelegate {
-  @_Concurrency.MainActor(unsafe) weak public var delegate: (any ScanHelperSDK.ScanHelperUIDelegate)?
+@_inheritsConvenienceInitializers @objc public class ScanHelper : ObjectiveC.NSObject {
+  @objc weak public var delegate: (any ScanHelperSDK.ScanHelperUIDelegate)?
   @objc deinit
-  @_Concurrency.MainActor(unsafe) @objc public func start(supView: UIKit.UIView, scanConfig: ScanHelperSDK.ScanConfig = ScanConfig(), scanRegion: CoreFoundation.CGRect = .zero, scanType: [AVFoundation.AVMetadataObject.ObjectType] = [], scanHandler: ((ScanHelperSDK.ScanResult) -> Swift.Void)? = nil)
-  @_Concurrency.MainActor(unsafe) @objc public func stop()
-  @_Concurrency.MainActor(unsafe) @objc public func torchFlash(open: Swift.Bool)
-  @_Concurrency.MainActor(unsafe) @objc public func detector(image: UIKit.UIImage, ofType: Swift.String = CIDetectorTypeQRCode, context: CoreImage.CIContext? = nil, options: [Swift.String : Any]? = [CIDetectorAccuracy: CIDetectorAccuracyHigh]) -> Swift.Array<CoreImage.CIFeature>?
-  @_Concurrency.MainActor(unsafe) @objc public func gestureRecognizer(_ gestureRecognizer: UIKit.UIGestureRecognizer, shouldBeRequiredToFailBy otherGestureRecognizer: UIKit.UIGestureRecognizer) -> Swift.Bool
-  @_Concurrency.MainActor(unsafe) @objc public func metadataOutput(_ output: AVFoundation.AVCaptureMetadataOutput, didOutput metadataObjects: [AVFoundation.AVMetadataObject], from connection: AVFoundation.AVCaptureConnection)
-  @_Concurrency.MainActor(unsafe) @objc public func captureOutput(_ output: AVFoundation.AVCaptureOutput, didOutput sampleBuffer: CoreMedia.CMSampleBuffer, from connection: AVFoundation.AVCaptureConnection)
-  @_Concurrency.MainActor(unsafe) @objc override dynamic public init()
+  @objc override dynamic public init()
+}
+extension ScanHelperSDK.ScanHelper {
+  @available(iOS 11.0, *)
+  @objc dynamic public func start(supView: UIKit.UIView, scanConfig: ScanHelperSDK.ScanConfig = ScanConfig(), scanRegion: CoreFoundation.CGRect = .zero, scanType: [AVFoundation.AVMetadataObject.ObjectType] = [], scanHandler: ((ScanHelperSDK.ScanResult) -> Swift.Void)? = nil)
+  @available(iOS 11.0, *)
+  @objc dynamic public func stop()
+  @available(iOS 11.0, *)
+  @objc dynamic public func torchFlash(open: Swift.Bool)
+  @available(iOS 11.0, *)
+  @objc dynamic public func detector(image: UIKit.UIImage, ofType: Swift.String = CIDetectorTypeQRCode, context: CoreImage.CIContext? = nil, options: [Swift.String : Any]? = [CIDetectorAccuracy: CIDetectorAccuracyHigh]) -> Swift.Array<CoreImage.CIFeature>?
+}
+extension ScanHelperSDK.ScanHelper : UIKit.UIGestureRecognizerDelegate, AVFoundation.AVCaptureMetadataOutputObjectsDelegate, AVFoundation.AVCaptureVideoDataOutputSampleBufferDelegate {
+  @_Concurrency.MainActor(unsafe) @objc dynamic public func gestureRecognizer(_ gestureRecognizer: UIKit.UIGestureRecognizer, shouldBeRequiredToFailBy otherGestureRecognizer: UIKit.UIGestureRecognizer) -> Swift.Bool
+  @objc dynamic public func captureOutput(_ output: AVFoundation.AVCaptureOutput, didOutput sampleBuffer: CoreMedia.CMSampleBuffer, from connection: AVFoundation.AVCaptureConnection)
+  @objc dynamic public func metadataOutput(_ output: AVFoundation.AVCaptureMetadataOutput, didOutput metadataObjects: [AVFoundation.AVMetadataObject], from connection: AVFoundation.AVCaptureConnection)
 }
 extension ScanHelperSDK.DoubleTapState : Swift.Equatable {}
 extension ScanHelperSDK.DoubleTapState : Swift.Hashable {}
 extension ScanHelperSDK.DoubleTapState : Swift.RawRepresentable {}
-extension ScanHelperSDK.AnimationStyle : Swift.Equatable {}
-extension ScanHelperSDK.AnimationStyle : Swift.Hashable {}
-extension ScanHelperSDK.AnimationStyle : Swift.RawRepresentable {}
 extension ScanHelperSDK.AngleStyle : Swift.Equatable {}
 extension ScanHelperSDK.AngleStyle : Swift.Hashable {}
 extension ScanHelperSDK.AngleStyle : Swift.RawRepresentable {}
+extension ScanHelperSDK.AnimationStyle : Swift.Equatable {}
+extension ScanHelperSDK.AnimationStyle : Swift.Hashable {}
+extension ScanHelperSDK.AnimationStyle : Swift.RawRepresentable {}
