@@ -42,6 +42,7 @@
 
 
 
+
 # 三）功能列表
 
 |        key         |          type           |                   des                    |     true     |   false    |
@@ -64,6 +65,7 @@
 
 
 
+
 # 四）样式列表
 
 
@@ -72,20 +74,34 @@
 |       key        |      type      |                     des                     |
 | :--------------: | :------------: | :-----------------------------------------: |
 |      margin      |      Int       |          距离左右边界间距(默认60)           |
-|    lineHeight    |      Int       |         正方形边框粗细(默认0)         |
+|    lineHeight    |      Int       |            正方形边框粗细(默认0)            |
 |    lineColor     |    UIColor     |          正方形边框颜色(默认clear)          |
 |    angleColor    |    UIColor     |       正方形边框4个角颜色(默认orange)       |
-|   angleLength    |      Int       |      正方形边框4个角长度(默认30)      |
-|   angleHeight    |      Int       |      正方形边框4个角高度(默认4)       |
+|   angleLength    |      Int       |         正方形边框4个角长度(默认30)         |
+|   angleHeight    |      Int       |         正方形边框4个角高度(默认4)          |
 |    angleStyle    |   AngleStyle   |        正方形边框边角样式(默认重合)         |
 |  animationStyle  | AnimationStyle |          扫码动画效果(默认无动画)           |
-|  autoFocuStyle   | AutoFocuStyle  |             自动聚焦样式（已设默认样式）     |
+|  autoFocuStyle   | AutoFocuStyle  |        自动聚焦样式（已设默认样式）         |
 |  animationImage  |    UIImage     | 扫码动画资源图片(可选值,若为空则无动画效果) |
 | unrecognizedArea |    UIColor     |    非识别区域背景色(默认黑色,0.5透明度)     |
 
 
 
-# 五）集成方式
+
+# 五）结果列表
+
+
+
+|     key      |            type             |      des       |
+| :----------: | :-------------------------: | :------------: |
+|    value     |           String            | 扫描结果字符串 |
+| metadataType | AVMetadataObject.ObjectType |  扫描结果类型  |
+
+
+
+
+
+# 六）集成方式
 
 ### 1）CocoaPods
 
@@ -106,14 +122,14 @@ pod 'ScanHelper'
 
 
 
-# 六）导入头文件
+# 七）导入头文件
 
 ###  1）`Swift` 项目
 	import ScanHelperSDK
 ###  2）`Objective-C`　项目
 	#import <ScanHelperSDK/ScanHelperSDK-Swift.h>
 
-# 七）使用方法
+# 八）使用方法
 
 ### 1）基础使用（单一识别结果,默认使用方式）
 
@@ -214,7 +230,7 @@ class ScanHelperViewController: UIViewController, ScanHelperUIDelegate {
 ```
 
 
-# 八）API引导
+# 九）API引导
 
 ### 1）核心方法
 
