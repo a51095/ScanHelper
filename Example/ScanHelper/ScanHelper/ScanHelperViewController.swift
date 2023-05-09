@@ -10,12 +10,15 @@ import ScanHelperSDK
 
 class ScanHelperViewController: UIViewController {
     /// 让控制器持有scanHelper对象,不然会被提前释放
-    let scanHelper = ScanHelper()
+    private let scanHelper = ScanHelper()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         defaultBackgroundColor()
-        
+        scan()
+    }
+    
+    private func scan() {
         let config = ScanConfig()
         config.sound = Bundle.main.path(forResource: "scan_audio", ofType: "wav")
         config.animationImage = UIImage(named: "scan_animation")
