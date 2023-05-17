@@ -313,11 +313,11 @@ typedef SWIFT_ENUM(NSInteger, AnimationStyle, open) {
 SWIFT_CLASS("_TtC13ScanHelperSDK13AutoFocuStyle")
 @interface AutoFocuStyle : NSObject
 /// Border width (default 1)
-@property (nonatomic) CGFloat lineWidth;
+@property (nonatomic) CGFloat borderWidth;
 /// Centerline length (default 4)
 @property (nonatomic) CGFloat limitHeight;
 /// Border color (default orange)
-@property (nonatomic, strong) UIColor * _Nonnull lineColor;
+@property (nonatomic, strong) UIColor * _Nonnull borderColor;
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
 @end
 
@@ -328,6 +328,16 @@ typedef SWIFT_ENUM(NSInteger, DoubleTapState, open) {
   DoubleTapStateLarge = 0,
   DoubleTapStateSmall = 1,
 };
+
+
+SWIFT_CLASS("_TtC13ScanHelperSDK14HighlightStyle")
+@interface HighlightStyle : NSObject
+/// Border width (default 2)
+@property (nonatomic) CGFloat borderWidth;
+/// Border color (default green)
+@property (nonatomic, strong) UIColor * _Nonnull borderColor;
+- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
+@end
 
 @class NSString;
 @class UIImage;
@@ -351,6 +361,8 @@ SWIFT_CLASS("_TtC13ScanHelperSDK10ScanConfig")
 @property (nonatomic) double brightnessMaxValue;
 /// Scan quality (default not specified)
 @property (nonatomic) AVCaptureSessionPreset _Nonnull preset;
+/// Is a prompt box displayed when the QR code is successful (default true)
+@property (nonatomic) BOOL isPromptBox;
 /// Whether to play a prompt tone after successful scanning (default no sound, need to configure yourself)
 @property (nonatomic, copy) NSString * _Nullable sound;
 /// Scan animation style maps (default no animation, need to configure yourself)
@@ -379,18 +391,6 @@ SWIFT_CLASS("_TtC13ScanHelperSDK10ScanHelper")
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
 @end
 
-@class UIGestureRecognizer;
-@class AVCaptureOutput;
-@class AVCaptureConnection;
-@class AVCaptureMetadataOutput;
-@class AVMetadataObject;
-
-@interface ScanHelper (SWIFT_EXTENSION(ScanHelperSDK)) <AVCaptureMetadataOutputObjectsDelegate, AVCaptureVideoDataOutputSampleBufferDelegate, UIGestureRecognizerDelegate>
-- (BOOL)gestureRecognizer:(UIGestureRecognizer * _Nonnull)gestureRecognizer shouldBeRequiredToFailByGestureRecognizer:(UIGestureRecognizer * _Nonnull)otherGestureRecognizer SWIFT_WARN_UNUSED_RESULT;
-- (void)captureOutput:(AVCaptureOutput * _Nonnull)output didOutputSampleBuffer:(CMSampleBufferRef _Nonnull)sampleBuffer fromConnection:(AVCaptureConnection * _Nonnull)connection;
-- (void)captureOutput:(AVCaptureMetadataOutput * _Nonnull)output didOutputMetadataObjects:(NSArray<AVMetadataObject *> * _Nonnull)metadataObjects fromConnection:(AVCaptureConnection * _Nonnull)connection;
-@end
-
 @class UIView;
 @class ScanResult;
 @class CIContext;
@@ -401,6 +401,18 @@ SWIFT_CLASS("_TtC13ScanHelperSDK10ScanHelper")
 - (void)stop SWIFT_AVAILABILITY(ios,introduced=11.0);
 - (void)torchFlashWithOpen:(BOOL)open SWIFT_AVAILABILITY(ios,introduced=11.0);
 - (NSArray<CIFeature *> * _Nullable)detectorWithImage:(UIImage * _Nonnull)image ofType:(NSString * _Nonnull)ofType context:(CIContext * _Nullable)context options:(NSDictionary<NSString *, id> * _Nullable)options SWIFT_WARN_UNUSED_RESULT SWIFT_AVAILABILITY(ios,introduced=11.0);
+@end
+
+@class UIGestureRecognizer;
+@class AVCaptureOutput;
+@class AVCaptureConnection;
+@class AVCaptureMetadataOutput;
+@class AVMetadataObject;
+
+@interface ScanHelper (SWIFT_EXTENSION(ScanHelperSDK)) <AVCaptureMetadataOutputObjectsDelegate, AVCaptureVideoDataOutputSampleBufferDelegate, UIGestureRecognizerDelegate>
+- (BOOL)gestureRecognizer:(UIGestureRecognizer * _Nonnull)gestureRecognizer shouldBeRequiredToFailByGestureRecognizer:(UIGestureRecognizer * _Nonnull)otherGestureRecognizer SWIFT_WARN_UNUSED_RESULT;
+- (void)captureOutput:(AVCaptureOutput * _Nonnull)output didOutputSampleBuffer:(CMSampleBufferRef _Nonnull)sampleBuffer fromConnection:(AVCaptureConnection * _Nonnull)connection;
+- (void)captureOutput:(AVCaptureMetadataOutput * _Nonnull)output didOutputMetadataObjects:(NSArray<AVMetadataObject *> * _Nonnull)metadataObjects fromConnection:(AVCaptureConnection * _Nonnull)connection;
 @end
 
 
@@ -450,12 +462,15 @@ SWIFT_CLASS("_TtC13ScanHelperSDK9ScanStyle")
 @property (nonatomic) enum AnimationStyle anmiationStyle;
 /// Auto focus style (customizable through proxy methods)
 @property (nonatomic, strong) AutoFocuStyle * _Nonnull autoFocuStyle;
+/// Highlight style (prompt box when QR code scanning is successful)
+@property (nonatomic, strong) HighlightStyle * _Nonnull highlightStyle;
 /// Scanned animation resource image (optional value, if left blank, no animation effect)
 @property (nonatomic, strong) UIImage * _Nullable animationImage;
 /// Background color of non recognition areas (default black, 0.5 transparency)
 @property (nonatomic, strong) UIColor * _Nonnull unrecognizedArea;
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
 @end
+
 
 #endif
 #if defined(__cplusplus)

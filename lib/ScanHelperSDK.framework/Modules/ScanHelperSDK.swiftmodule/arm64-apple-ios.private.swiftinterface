@@ -37,10 +37,16 @@ import _StringProcessing
   @objc public var metadataType: AVFoundation.AVMetadataObject.ObjectType
   @objc deinit
 }
+@_inheritsConvenienceInitializers @objc public class HighlightStyle : ObjectiveC.NSObject {
+  @objc public var borderWidth: CoreFoundation.CGFloat
+  @objc public var borderColor: UIKit.UIColor
+  @objc override dynamic public init()
+  @objc deinit
+}
 @_inheritsConvenienceInitializers @objc public class AutoFocuStyle : ObjectiveC.NSObject {
-  @objc public var lineWidth: CoreFoundation.CGFloat
+  @objc public var borderWidth: CoreFoundation.CGFloat
   @objc public var limitHeight: CoreFoundation.CGFloat
-  @objc public var lineColor: UIKit.UIColor
+  @objc public var borderColor: UIKit.UIColor
   @objc override dynamic public init()
   @objc deinit
 }
@@ -55,6 +61,7 @@ import _StringProcessing
   @objc public var angleStyle: ScanHelperSDK.AngleStyle
   @objc public var anmiationStyle: ScanHelperSDK.AnimationStyle
   @objc public var autoFocuStyle: ScanHelperSDK.AutoFocuStyle
+  @objc public var highlightStyle: ScanHelperSDK.HighlightStyle
   @objc public var animationImage: UIKit.UIImage?
   @objc public var unrecognizedArea: UIKit.UIColor
   @objc override dynamic public init()
@@ -69,6 +76,7 @@ import _StringProcessing
   @objc public var brightnessMinValue: Swift.Double
   @objc public var brightnessMaxValue: Swift.Double
   @objc public var preset: AVFoundation.AVCaptureSession.Preset
+  @objc public var isPromptBox: Swift.Bool
   @objc public var sound: Swift.String?
   @objc public var animationImage: UIKit.UIImage? {
     @objc get
