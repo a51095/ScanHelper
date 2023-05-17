@@ -54,10 +54,11 @@
 |    isDoubleTap     |          bool           |        是否支持双击手势,默认true         |     支持     | 不支持  |
 |       isZoom       |          bool           |        是否支持缩放手势,默认true         |     支持     |  不支持 |
 |     isHasTorch     |          bool           |  是否支持光感检测,自动打开闪光灯,默认true  |     支持     |  不支持 |
+|     isPromptBox    |          bool           |二维码类型,识别成功时,是否展示框选提示，默认true|     展示     |  不展示 |
 |      isLimit       |          bool           |        是否自定义底部UI,默认false        |    自定义    |   默认UI   |
 |   isUnrestrained   |          bool           |        是否完全自定义UI,默认false        |    自定义    |   默认UI   |
 |     isDebugDes     |          bool           |        是否打印调试信息,默认true         |     打印     |  不打印  |
-|    soundSource     |    (String, String)?    |         扫描提示音,默认nil         | 有效资源展示 | 默认不展示 |
+|    soundSource     |    (String, String)?    |         扫描提示音,默认nil              | 有效资源展示 | 默认不展示 |
 |   animationImage   |        UIImage？        |         扫描动画样式图,默认nil         | 有效资源展示 | 默认不显示 |
 | brightnessMinValue |         Double          |    自动开启闪光灯亮度对比值,默认true     | 小于此值开启 |   默认-1   |
 | brightnessMaxValue |         Double          |    自动关闭闪光灯亮度对比值,默认true     | 大于此值关闭 |   默认6    |
@@ -73,17 +74,18 @@
 
 |       key        |      type      |                     des                     |
 | :--------------: | :------------: | :-----------------------------------------: |
-|      margin      |      Int       |          距离左右边界间距(默认60)           |
-|    lineHeight    |      Int       |            正方形边框粗细(默认0)            |
-|    lineColor     |    UIColor     |          正方形边框颜色(默认clear)          |
-|    angleColor    |    UIColor     |       正方形边框4个角颜色(默认orange)       |
-|   angleLength    |      Int       |         正方形边框4个角长度(默认30)         |
-|   angleHeight    |      Int       |         正方形边框4个角高度(默认4)          |
-|    angleStyle    |   AngleStyle   |        正方形边框边角样式(默认重合)         |
-|  animationStyle  | AnimationStyle |          扫码动画效果(默认无动画)           |
-|  autoFocuStyle   | AutoFocuStyle  |        自动聚焦样式（已设默认样式）         |
-|  animationImage  |    UIImage     | 扫码动画资源图片(可选值,若为空则无动画效果) |
-| unrecognizedArea |    UIColor     |    非识别区域背景色(默认黑色,0.5透明度)     |
+|      margin      |      Int       |          距离左右边界间距(默认60)              |
+|    lineHeight    |      Int       |            正方形边框粗细(默认0)               |
+|    lineColor     |    UIColor     |          正方形边框颜色(默认clear)             |
+|    angleColor    |    UIColor     |       正方形边框4个角颜色(默认orange)           |
+|   angleLength    |      Int       |         正方形边框4个角长度(默认30)             |
+|   angleHeight    |      Int       |         正方形边框4个角高度(默认4)             |
+|    angleStyle    |   AngleStyle   |        正方形边框边角样式(默认重合)             |
+|  animationStyle  | AnimationStyle |          扫码动画效果(默认无动画)              |
+|  autoFocuStyle   | AutoFocuStyle  |        自动聚焦样式（提供默认样式）             |
+|  highlightStyle  | HighlightStyle |    二维码扫描成功时，框选提示样式（提供默认样式）  |
+|  animationImage  |    UIImage     | 扫码动画资源图片(可选值,若为空则无动画效果)       |
+| unrecognizedArea |    UIColor     |    非识别区域背景色(默认黑色,0.5透明度)         |
 
 
 
@@ -94,8 +96,8 @@
 
 |     key      |            type             |      des       |
 | :----------: | :-------------------------: | :------------: |
-|    value     |           String            | 扫描结果字符串 |
-| metadataType | AVMetadataObject.ObjectType |  扫描结果类型  |
+|    value     |           String            | 扫描结果字符串   |
+| metadataType | AVMetadataObject.ObjectType |  扫描结果类型    |
 
 
 
