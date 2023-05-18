@@ -1,15 +1,12 @@
 #!/bin/zsh
 
-# authorisation
-chmod +x push_to_trunk.sh
-
 # root directory
 cd "$(dirname "$0")"
 
-echo "💁💁💁 Please enter a label name:"
+echo "💁💁💁 Please enter a tag name:"
 read tag_name
 
-echo "⚡️⚡️⚡️ Label and push to remote github..."
+echo "⚡️⚡️⚡️ Tag and push to remote github..."
 git tag "$tag_name"
 git push origin "$tag_name"
 
