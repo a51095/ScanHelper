@@ -13,9 +13,9 @@ Pod::Spec.new do |spec|
   spec.homepage     = 'https://github.com/a51095/ScanHelper'
   spec.source       = { :git => 'https://github.com/a51095/ScanHelper.git', :tag => spec.version }
 
-  spec.swift_version = '5.0'
-  spec.platform      = :ios, '11.0'
-  spec.ios.deployment_target = '11.0'
+  spec.swift_version  = '5.0'
+  spec.platform       = :ios, '11.0'
+  spec.ios.deployment_target    = '11.0'
 
   spec.ios.vendored_frameworks  = 'lib/ScanHelperSDK.framework'
 
