@@ -97,6 +97,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 3FFC5BE72A066B8D0002191F /* Build configuration list for PBXNativeTarget "ScanHelper" */;
 			buildPhases = (
+				3F38CE9B2AF912F9000BC560 /* Copy ScanHelperSDK */,
 				3FFC5BCF2A066B8C0002191F /* Sources */,
 				3FFC5BD02A066B8C0002191F /* Frameworks */,
 				3FFC5BD12A066B8C0002191F /* Resources */,
@@ -156,6 +157,27 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		3F38CE9B2AF912F9000BC560 /* Copy ScanHelperSDK */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = "Copy ScanHelperSDK";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# 设置 DERIVED_DATA_DIR 环境变量\nDERIVED_DATA_DIR=\"$HOME/Library/Developer/Xcode/DerivedData\"\n\n# 检查 Derived Data 目录是否存在\nif [ -z \"$DERIVED_DATA_DIR\" ]; then\n    echo \"Error: The DERIVED_DATA_DIR environment variable is not set.\"\n    exit 1\nfi\n\n# 查找 \"ScanHelperSDK.framework\"\nFOUND_DIRS=$(find \"$DERIVED_DATA_DIR\" -type d -name \"ScanHelperSDK.framework\" -path \"*/Release-iphoneos/ScanHelperSDK.framework\")\n\n# 设置目标路径\nTARGET_PATH=\"$SRCROOT/../../lib/ScanHelperSDK.framework/\"\n\n# 检查是否找到目标目录\nif [ -z \"$FOUND_DIRS\" ]; then\n    echo \"Error: 'ScanHelperSDK.framework' not found in Derived Data directory.\"\n    exit 1\nfi\n\n# 如果不存在,创建目标目录\nmkdir -p \"$TARGET_PATH\"\n\n# 拷贝 \"ScanHelperSDK.framework\" 及其内容到目标路径\nfor dir in $FOUND_DIRS; do\n    cp -Rf \"$dir/\"* \"$TARGET_PATH\"\ndone\n\n# 检查是否复制成功\nif [ $? -eq 0 ]; then\n    echo \"'ScanHelperSDK.framework' Copy Success!\"\nelse\n    echo \"Error: Failed to copy 'ScanHelperSDK.framework'.\"\n    exit 1\nfi\n";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		3FFC5BCF2A066B8C0002191F /* Sources */ = {
@@ -313,12 +335,12 @@
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen.storyboard;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 0.0.9;
+				MARKETING_VERSION = 0.1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.well.ScanHelper;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -344,12 +366,12 @@
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen.storyboard;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 0.0.9;
+				MARKETING_VERSION = 0.1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.well.ScanHelper;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
