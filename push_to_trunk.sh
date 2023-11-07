@@ -15,16 +15,41 @@ mv temp.podspec ScanHelper.podspec
 
 echo "🚀🚀🚀 Tag and push to remote github..."
 git tag "$tag_name"
-git push origin "$tag_name"
+if git push origin "$tag_name"; then
+    echo "Tag and push successful!"
+else
+    echo "⚠️⚠️⚠️ Push to remote GitHub failed. Exit."
+    exit 1
+fi
 
 echo "🔍🔍🔍 Local verification podspec..."
-pod lib lint --verbose --allow-warnings --skip-import-validation
+if pod lib lint --verbose --allow-warnings --skip-import-validation; then
+    echo "Local verification successful!"
+else
+    echo "⚠️⚠️⚠️ Local verification failed. Exit."
+    exit 1
+fi
 
 echo "🌐🌐🌐 Networking verification podspec..."
-pod spec lint --verbose --allow-warnings --skip-import-validation
+if pod spec lint --verbose --allow-warnings --skip-import-validation; then
+    echo "Networking verification successful!"
+else
+    echo "⚠️⚠️⚠️ Networking verification failed. Exit."
+    exit 1
+fi
 
 echo "🤖🤖🤖 Trunk me token, cocoapods.org..."
-pod trunk me
+if pod trunk me; then
+    echo "Trunk token verification successful!"
+else
+    echo "⚠️⚠️⚠️ Trunk token verification failed. Exit."
+    exit 1
+fi
 
 echo "🎉🎉🎉 Update podspec..."
-pod trunk push ScanHelper.podspec --verbose --allow-warnings --skip-import-validation
+if pod trunk push ScanHelper.podspec --verbose --allow-warnings --skip-import-validation; then
+    echo "Podspec update successful!"
+else
+    echo "⚠️⚠️⚠️ Podspec update failed. Exit."
+    exit 1
+fi
