@@ -46,10 +46,26 @@ else
     exit 1
 fi
 
-echo "🎉🎉🎉 Update podspec..."
-if pod trunk push ScanHelper.podspec --verbose --allow-warnings --skip-import-validation; then
-    echo "Podspec update successful!"
+if ! pod repo list | grep -q 'ScanHelper'; then
+    echo "⚡️⚡️⚡️ Repo add ScanHelper..."
+    pod repo add ScanHelper https://github.com/a51095/ScanHelper.git
 else
-    echo "⚠️⚠️⚠️ Podspec update failed. Exit."
+    echo "✅✅✅ Repo update ScanHelper..."
+    pod repo update ScanHelper
+fi
+
+echo "⚡️⚡️⚡️ Pod trunk push..."
+if pod trunk push ScanHelper.podspec --verbose --allow-warnings --skip-import-validation; then
+    echo "Pod trunk push successful!"
+else
+    echo "⚠️⚠️⚠️ Pod trunk push failed. Exit."
+    exit 1
+fi
+
+echo "⚡️⚡️⚡️ Repo push..."
+if pod repo push ScanHelper ScanHelper.podspec --verbose --allow-warnings --skip-import-validation; then
+    echo "Repo push successful!"
+else
+    echo "⚠️⚠️⚠️ Repo push failed. Exit."
     exit 1
 fi
