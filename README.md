@@ -196,7 +196,7 @@ class ScanHelperViewController: UIViewController, ScanHelperUIDelegate {
         config.isUnrestrained = true
         
         // ⚠️⚠️⚠️scanHandler回调,仅获取单一扫描结果
-	      // 通过代理方法，获取多个扫描结果
+	// 通过代理方法，获取多个扫描结果
         scanHelper.delegate = self
         scanHelper.start(supView: view, scanConfig: config)
         
