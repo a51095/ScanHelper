@@ -303,11 +303,15 @@ typedef unsigned int swift_uint4  __attribute__((__ext_vector_type__(4)));
 #endif
 
 #if defined(__OBJC__)
-/// Angle style enum, default is OnLine
-/// <em>InLine</em>: embedded
-/// <em>OnLine</em>: overlap
-/// <em>OutLine</em>: overhang
-/// <em>None</em>: no style
+/// @enum AngleStyle
+/// @constant InLine
+/// embedded.
+/// @constant OnLine
+/// overlap.
+/// @constant OutLine
+/// overhang.
+/// @constant None
+/// no style.
 typedef SWIFT_ENUM(NSInteger, AngleStyle, open) {
   AngleStyleInLine = 0,
   AngleStyleOnLine = 1,
@@ -315,10 +319,14 @@ typedef SWIFT_ENUM(NSInteger, AngleStyle, open) {
   AngleStyleNone = 3,
 };
 
+/// @enum AnimationStyle
 /// Animation style enum, default is LineMove
-/// <em>LineMove</em>: move up and down
-/// <em>LineCenter</em>: center
-/// <em>None</em>: no animation
+/// @constant LineMove
+/// move up and down.
+/// @constant LineCenter
+/// center.
+/// @constant None
+/// no animation.
 typedef SWIFT_ENUM(NSInteger, AnimationStyle, open) {
   AnimationStyleLineMove = 0,
   AnimationStyleLineCenter = 1,
@@ -338,9 +346,11 @@ SWIFT_CLASS("_TtC13ScanHelperSDK13AutoFocuStyle")
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
 @end
 
-/// Scale enum, default is Small
-/// <em>Large</em>: enlarge
-/// <em>Small</em>: smaller
+/// @enum DoubleTapState
+/// @constant Large
+/// The enlarge.
+/// @constant Small
+/// The smaller.
 typedef SWIFT_ENUM(NSInteger, DoubleTapState, open) {
   DoubleTapStateLarge = 0,
   DoubleTapStateSmall = 1,
@@ -395,7 +405,7 @@ SWIFT_CLASS("_TtC13ScanHelperSDK10ScanConfig")
 /// View fully customizable (default false)
 @property (nonatomic) BOOL isUnrestrained;
 /// Print debugging information (default true)
-@property (nonatomic) BOOL isDebugDes;
+@property (nonatomic) BOOL isDebug;
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
 @end
 
@@ -436,21 +446,43 @@ SWIFT_CLASS("_TtC13ScanHelperSDK10ScanHelper")
 SWIFT_PROTOCOL("_TtP13ScanHelperSDK18ScanHelperDelegate_")
 @protocol ScanHelperDelegate <NSObject>
 @optional
+/// @method scanLimit:
+/// @param bottomView
+/// A view from the bottom of the scan box to the bottom area of the parent view.
+/// @discussion
+/// None
 - (void)scanLimit:(UIView * _Nonnull)bottomView SWIFT_AVAILABILITY(ios,introduced=11.0);
+/// @method scanUnrestrained:
+/// @param fullView
+/// A view that is the same size as the parent view.
+/// @discussion
+/// None
 - (void)scanUnrestrained:(UIView * _Nonnull)fullView SWIFT_AVAILABILITY(ios,introduced=11.0);
+/// @method scanCaptureOutput:
+/// @param brightnessValue
+/// A brightness value.
+/// @discussion
+/// None
 - (void)scanCaptureOutput:(double)brightnessValue SWIFT_AVAILABILITY(ios,introduced=11.0);
+/// @method scanMetadataOutput:
+/// @param values
+/// An array of scan results.
+/// @discussion
+/// None
 - (void)scanMetadataOutput:(NSArray<ScanResult *> * _Nonnull)values SWIFT_AVAILABILITY(ios,introduced=11.0);
 @end
 
 
-/// ScanResult
-/// <em>value</em> is scan result string
-/// <em>metadataType</em> is scan result type
+/// @class ScanResult
 SWIFT_CLASS("_TtC13ScanHelperSDK10ScanResult")
 @interface ScanResult : NSObject
-/// Scan result string
+/// @property value
+/// @discussion
+/// The scan result string
 @property (nonatomic, copy) NSString * _Nonnull value;
-/// Scan result type
+/// @property metadataType
+/// @discussion
+/// The scan result type
 @property (nonatomic) AVMetadataObjectType _Nonnull metadataType;
 - (nonnull instancetype)init SWIFT_UNAVAILABLE;
 + (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
