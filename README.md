@@ -30,7 +30,6 @@
 
 
 
-
 # 二）组件特性
 
 ###### 💕　UI界面可完全自定义;
@@ -39,7 +38,6 @@
 ###### 💥　无内存泄漏问题,合理释放对象，及时回收内存资源;
 ###### 🏄　静态库`ScanHelperSDK.framework`,身轻如燕,仅`1.2`M大小;
 ###### 🏆　轻量级,只开启基础使用功能,仅占用`12 ~ 16`个内存, 启用全部功能, 内存占用在`120 ~ 130`之间;
-
 
 
 
@@ -66,9 +64,7 @@
 
 
 
-
 # 四）样式列表
-
 
 
 
@@ -89,7 +85,6 @@
 
 
 
-
 # 五）结果列表
 
 
@@ -98,8 +93,6 @@
 | :----------: | :-------------------------: | :------------: |
 |    value     |           String            | 扫描结果字符串   |
 | metadataType | AVMetadataObject.ObjectType |  扫描结果类型    |
-
-
 
 
 
@@ -120,7 +113,6 @@ pod 'ScanHelper'
 ###### 2)　选中 `TARGETS` -> `Build Settings` -> `Framework Search Paths`;
 ###### 3)　配置添加进来的静态库路径;
 ###### 4)　配置证书,真机模式扫码调试;
-
 
 
 
@@ -156,22 +148,22 @@ let scanHelper = ScanHelper()
 
 override func viewDidLoad() {
 	super.viewDidLoad()
-
+	
 	var config = ScanConfig()
-        config.sound = Bundle.main.path(forResource: "scan_audio", ofType: "wav")
-        config.animationImage = UIImage(named: "scan_animation")
+	config.sound = Bundle.main.path(forResource: "scan_audio", ofType: "wav")
+	config.animationImage = UIImage(named: "scan_animation")
 	config.isAutoFocus = false
 	config.isHasTorch = false
 	config.isZoom = false
 	config.isSingle = false
-
+	
 	config.scanStyle.lineColor = .purple
 	config.scanStyle.angleStyle = .OutLine
-        config.scanStyle.anmiationStyle = .LineCenter
-        config.scanStyle.autoFocuStyle.lineColor = .blue
-
+	config.scanStyle.anmiationStyle = .LineCenter
+	config.scanStyle.autoFocuStyle.lineColor = .blue
+	
 	// and so on ...
-
+	
 	scanHelper.start(supView: view, scanConfig: config) { [weak self] (res) in
 		guard let self = self else { return }
 		print(res)
@@ -184,50 +176,49 @@ override func viewDidLoad() {
 
 ``` swift
 class ScanHelperViewController: UIViewController, ScanHelperDelegate {
-    
-    /// 让控制器持有scanHelper对象,不然会被提前释放
-    let scanHelper = ScanHelper()
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        defaultBackgroundColor()
-        
-        let config = ScanConfig()
-        config.isUnrestrained = true
-        
-        // ⚠️⚠️⚠️scanHandler回调,仅获取单一扫描结果
-	// 通过代理方法，获取多个扫描结果
-        scanHelper.delegate = self
-        scanHelper.start(supView: view, scanConfig: config)
-        
-    }
-    
-    // MARK: - 自定义底部视图(获取一个自定义view,从扫描框底部开始计算到父视图底部边缘区域视图)
-    func scanLimit(_ bottomView: UIView) {
-        bottomView.backgroundColor = .orange
-    }
-    
-    // MARK: - 完全自定义UI视图(获取一个自定义view,frame大小同父视图bounds)
-    func scanUnrestrained(_ fullView: UIView) {
-        let v = UIView()
-        v.frame = CGRect(x: 0, y: 0, width: 200, height: 200)
-        fullView.addSubview(v)
-    }
-    
-    // MARK: - 获取一个亮度值
-    func scanCaptureOutput(_ brightnessValue: Double) {
-        print(brightnessValue)
-    }
-    
-    // MARK: - 多结果返回集合，ScanResult(⚠️⚠️⚠️仅多个结果才会执行此代理方法)
-    func scanMetadataOutput(_ values: Array<ScanResult>) {
-        print(values)
-    }
-    
-    // MARK: 反初始化器
-    deinit {
-        print("ScanHelperViewController deinit")
-    }
+
+	/// 让控制器持有scanHelper对象,不然会被提前释放
+	let scanHelper = ScanHelper()
+
+	override func viewDidLoad() {
+		super.viewDidLoad()
+		defaultBackgroundColor()
+		
+		let config = ScanConfig()
+		config.isUnrestrained = true
+		
+		// ⚠️⚠️⚠️scanHandler回调,仅获取单一扫描结果
+		// 通过代理方法，获取多个扫描结果
+		scanHelper.delegate = self
+		scanHelper.start(supView: view, scanConfig: config)
+	}
+
+	// MARK: - 自定义底部视图(获取一个自定义view,从扫描框底部开始计算到父视图底部边缘区域视图)
+	func scanLimit(_ bottomView: UIView) {
+		bottomView.backgroundColor = .orange
+	}
+
+	// MARK: - 完全自定义UI视图(获取一个自定义view,frame大小同父视图bounds)
+	func scanUnrestrained(_ fullView: UIView) {
+		let v = UIView()
+		v.frame = CGRect(x: 0, y: 0, width: 200, height: 200)
+		fullView.addSubview(v)
+	}
+
+	// MARK: - 获取一个亮度值
+	func scanCaptureOutput(_ brightnessValue: Double) {
+		print(brightnessValue)
+	}
+
+	// MARK: - 多结果返回集合，ScanResult(⚠️⚠️⚠️仅多个结果才会执行此代理方法)
+	func scanMetadataOutput(_ values: Array<ScanResult>) {
+		print(values)
+	}
+
+	// MARK: 反初始化器
+	deinit {
+		print("ScanHelperViewController deinit")
+	}
 }
 ```
 
