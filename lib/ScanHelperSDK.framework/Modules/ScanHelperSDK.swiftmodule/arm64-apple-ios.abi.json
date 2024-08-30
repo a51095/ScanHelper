@@ -4639,8 +4639,8 @@
           },
           {
             "kind": "Var",
-            "name": "isDebugDes",
-            "printedName": "isDebugDes",
+            "name": "isDebug",
+            "printedName": "isDebug",
             "children": [
               {
                 "kind": "TypeNominal",
@@ -4650,8 +4650,8 @@
               }
             ],
             "declKind": "Var",
-            "usr": "c:@M@ScanHelperSDK@objc(cs)ScanConfig(py)isDebugDes",
-            "mangledName": "$s13ScanHelperSDK0A6ConfigC10isDebugDesSbvp",
+            "usr": "c:@M@ScanHelperSDK@objc(cs)ScanConfig(py)isDebug",
+            "mangledName": "$s13ScanHelperSDK0A6ConfigC7isDebugSbvp",
             "moduleName": "ScanHelperSDK",
             "declAttributes": [
               "HasInitialValue",
@@ -4675,8 +4675,8 @@
                   }
                 ],
                 "declKind": "Accessor",
-                "usr": "c:@M@ScanHelperSDK@objc(cs)ScanConfig(im)isDebugDes",
-                "mangledName": "$s13ScanHelperSDK0A6ConfigC10isDebugDesSbvg",
+                "usr": "c:@M@ScanHelperSDK@objc(cs)ScanConfig(im)isDebug",
+                "mangledName": "$s13ScanHelperSDK0A6ConfigC7isDebugSbvg",
                 "moduleName": "ScanHelperSDK",
                 "implicit": true,
                 "declAttributes": [
@@ -4702,8 +4702,8 @@
                   }
                 ],
                 "declKind": "Accessor",
-                "usr": "c:@M@ScanHelperSDK@objc(cs)ScanConfig(im)setIsDebugDes:",
-                "mangledName": "$s13ScanHelperSDK0A6ConfigC10isDebugDesSbvs",
+                "usr": "c:@M@ScanHelperSDK@objc(cs)ScanConfig(im)setIsDebug:",
+                "mangledName": "$s13ScanHelperSDK0A6ConfigC7isDebugSbvs",
                 "moduleName": "ScanHelperSDK",
                 "implicit": true,
                 "declAttributes": [
@@ -4723,8 +4723,8 @@
                   }
                 ],
                 "declKind": "Accessor",
-                "usr": "s:13ScanHelperSDK0A6ConfigC10isDebugDesSbvM",
-                "mangledName": "$s13ScanHelperSDK0A6ConfigC10isDebugDesSbvM",
+                "usr": "s:13ScanHelperSDK0A6ConfigC7isDebugSbvM",
+                "mangledName": "$s13ScanHelperSDK0A6ConfigC7isDebugSbvM",
                 "moduleName": "ScanHelperSDK",
                 "implicit": true,
                 "accessorKind": "_modify"
@@ -4856,7 +4856,8 @@
             "declAttributes": [
               "Optional",
               "ObjC",
-              "Available"
+              "Available",
+              "RawDocComment"
             ],
             "reqNewWitnessTableEntry": true,
             "funcSelfKind": "NonMutating"
@@ -4889,7 +4890,8 @@
             "declAttributes": [
               "Optional",
               "ObjC",
-              "Available"
+              "Available",
+              "RawDocComment"
             ],
             "reqNewWitnessTableEntry": true,
             "funcSelfKind": "NonMutating"
@@ -4922,7 +4924,8 @@
             "declAttributes": [
               "Optional",
               "ObjC",
-              "Available"
+              "Available",
+              "RawDocComment"
             ],
             "reqNewWitnessTableEntry": true,
             "funcSelfKind": "NonMutating"
@@ -4963,7 +4966,8 @@
             "declAttributes": [
               "Optional",
               "ObjC",
-              "Available"
+              "Available",
+              "RawDocComment"
             ],
             "reqNewWitnessTableEntry": true,
             "funcSelfKind": "NonMutating"
@@ -5622,266 +5626,266 @@
     {
       "filePath": "\/Users\/well\/Desktop\/ScanHelperSDK\/ScanHelperSDK\/ScanConfig.swift",
       "kind": "IntegerLiteral",
-      "offset": 372,
+      "offset": 391,
       "length": 5,
       "value": "1"
     },
     {
       "filePath": "\/Users\/well\/Desktop\/ScanHelperSDK\/ScanHelperSDK\/ScanConfig.swift",
       "kind": "IntegerLiteral",
-      "offset": 372,
+      "offset": 391,
       "length": 5,
       "value": "1"
     },
     {
       "filePath": "\/Users\/well\/Desktop\/ScanHelperSDK\/ScanHelperSDK\/ScanConfig.swift",
       "kind": "IntegerLiteral",
-      "offset": 568,
+      "offset": 601,
       "length": 6,
       "value": "1"
     },
     {
       "filePath": "\/Users\/well\/Desktop\/ScanHelperSDK\/ScanHelperSDK\/ScanConfig.swift",
       "kind": "IntegerLiteral",
-      "offset": 576,
+      "offset": 609,
       "length": 7,
       "value": "2"
     },
     {
       "filePath": "\/Users\/well\/Desktop\/ScanHelperSDK\/ScanHelperSDK\/ScanConfig.swift",
       "kind": "IntegerLiteral",
-      "offset": 585,
+      "offset": 618,
       "length": 4,
       "value": "3"
     },
     {
       "filePath": "\/Users\/well\/Desktop\/ScanHelperSDK\/ScanHelperSDK\/ScanConfig.swift",
       "kind": "IntegerLiteral",
-      "offset": 568,
+      "offset": 601,
       "length": 6,
       "value": "1"
     },
     {
       "filePath": "\/Users\/well\/Desktop\/ScanHelperSDK\/ScanHelperSDK\/ScanConfig.swift",
       "kind": "IntegerLiteral",
-      "offset": 576,
+      "offset": 609,
       "length": 7,
       "value": "2"
     },
     {
       "filePath": "\/Users\/well\/Desktop\/ScanHelperSDK\/ScanHelperSDK\/ScanConfig.swift",
       "kind": "IntegerLiteral",
-      "offset": 585,
+      "offset": 618,
       "length": 4,
       "value": "3"
     },
     {
       "filePath": "\/Users\/well\/Desktop\/ScanHelperSDK\/ScanHelperSDK\/ScanConfig.swift",
       "kind": "IntegerLiteral",
-      "offset": 783,
+      "offset": 867,
       "length": 10,
       "value": "1"
     },
     {
       "filePath": "\/Users\/well\/Desktop\/ScanHelperSDK\/ScanHelperSDK\/ScanConfig.swift",
       "kind": "IntegerLiteral",
-      "offset": 795,
+      "offset": 879,
       "length": 4,
       "value": "2"
     },
     {
       "filePath": "\/Users\/well\/Desktop\/ScanHelperSDK\/ScanHelperSDK\/ScanConfig.swift",
       "kind": "IntegerLiteral",
-      "offset": 783,
+      "offset": 867,
       "length": 10,
       "value": "1"
     },
     {
       "filePath": "\/Users\/well\/Desktop\/ScanHelperSDK\/ScanHelperSDK\/ScanConfig.swift",
       "kind": "IntegerLiteral",
-      "offset": 795,
+      "offset": 879,
       "length": 4,
       "value": "2"
     },
     {
       "filePath": "\/Users\/well\/Desktop\/ScanHelperSDK\/ScanHelperSDK\/ScanConfig.swift",
       "kind": "StringLiteral",
-      "offset": 914,
+      "offset": 933,
       "length": 10,
       "value": "\"ScanHelperSDK.ScanResult\""
     },
     {
       "filePath": "\/Users\/well\/Desktop\/ScanHelperSDK\/ScanHelperSDK\/ScanConfig.swift",
       "kind": "FloatLiteral",
-      "offset": 1351,
+      "offset": 1499,
       "length": 3,
       "value": "2.0"
     },
     {
       "filePath": "\/Users\/well\/Desktop\/ScanHelperSDK\/ScanHelperSDK\/ScanConfig.swift",
       "kind": "FloatLiteral",
-      "offset": 1568,
+      "offset": 1716,
       "length": 3,
       "value": "1.0"
     },
     {
       "filePath": "\/Users\/well\/Desktop\/ScanHelperSDK\/ScanHelperSDK\/ScanConfig.swift",
       "kind": "FloatLiteral",
-      "offset": 1654,
+      "offset": 1802,
       "length": 3,
       "value": "4.0"
     },
     {
       "filePath": "\/Users\/well\/Desktop\/ScanHelperSDK\/ScanHelperSDK\/ScanConfig.swift",
       "kind": "BooleanLiteral",
-      "offset": 1884,
+      "offset": 2032,
       "length": 4,
       "value": "true"
     },
     {
       "filePath": "\/Users\/well\/Desktop\/ScanHelperSDK\/ScanHelperSDK\/ScanConfig.swift",
       "kind": "IntegerLiteral",
-      "offset": 1979,
+      "offset": 2127,
       "length": 2,
       "value": "60"
     },
     {
       "filePath": "\/Users\/well\/Desktop\/ScanHelperSDK\/ScanHelperSDK\/ScanConfig.swift",
       "kind": "IntegerLiteral",
-      "offset": 2075,
+      "offset": 2223,
       "length": 1,
       "value": "0"
     },
     {
       "filePath": "\/Users\/well\/Desktop\/ScanHelperSDK\/ScanHelperSDK\/ScanConfig.swift",
       "kind": "IntegerLiteral",
-      "offset": 2388,
+      "offset": 2536,
       "length": 2,
       "value": "30"
     },
     {
       "filePath": "\/Users\/well\/Desktop\/ScanHelperSDK\/ScanHelperSDK\/ScanConfig.swift",
       "kind": "IntegerLiteral",
-      "offset": 2497,
+      "offset": 2645,
       "length": 1,
       "value": "4"
     },
     {
       "filePath": "\/Users\/well\/Desktop\/ScanHelperSDK\/ScanHelperSDK\/ScanConfig.swift",
       "kind": "IntegerLiteral",
-      "offset": 3253,
+      "offset": 3401,
       "length": 1,
       "value": "0"
     },
     {
       "filePath": "\/Users\/well\/Desktop\/ScanHelperSDK\/ScanHelperSDK\/ScanConfig.swift",
       "kind": "IntegerLiteral",
-      "offset": 3263,
+      "offset": 3411,
       "length": 1,
       "value": "0"
     },
     {
       "filePath": "\/Users\/well\/Desktop\/ScanHelperSDK\/ScanHelperSDK\/ScanConfig.swift",
       "kind": "IntegerLiteral",
-      "offset": 3272,
+      "offset": 3420,
       "length": 1,
       "value": "0"
     },
     {
       "filePath": "\/Users\/well\/Desktop\/ScanHelperSDK\/ScanHelperSDK\/ScanConfig.swift",
       "kind": "FloatLiteral",
-      "offset": 3282,
+      "offset": 3430,
       "length": 3,
       "value": "0.5"
     },
     {
       "filePath": "\/Users\/well\/Desktop\/ScanHelperSDK\/ScanHelperSDK\/ScanConfig.swift",
       "kind": "BooleanLiteral",
-      "offset": 3424,
+      "offset": 3572,
       "length": 4,
       "value": "true"
     },
     {
       "filePath": "\/Users\/well\/Desktop\/ScanHelperSDK\/ScanHelperSDK\/ScanConfig.swift",
       "kind": "BooleanLiteral",
-      "offset": 3510,
+      "offset": 3658,
       "length": 4,
       "value": "true"
     },
     {
       "filePath": "\/Users\/well\/Desktop\/ScanHelperSDK\/ScanHelperSDK\/ScanConfig.swift",
       "kind": "BooleanLiteral",
-      "offset": 3620,
+      "offset": 3768,
       "length": 4,
       "value": "true"
     },
     {
       "filePath": "\/Users\/well\/Desktop\/ScanHelperSDK\/ScanHelperSDK\/ScanConfig.swift",
       "kind": "BooleanLiteral",
-      "offset": 3717,
+      "offset": 3865,
       "length": 4,
       "value": "true"
     },
     {
       "filePath": "\/Users\/well\/Desktop\/ScanHelperSDK\/ScanHelperSDK\/ScanConfig.swift",
       "kind": "BooleanLiteral",
-      "offset": 3856,
+      "offset": 4004,
       "length": 4,
       "value": "true"
     },
     {
       "filePath": "\/Users\/well\/Desktop\/ScanHelperSDK\/ScanHelperSDK\/ScanConfig.swift",
       "kind": "IntegerLiteral",
-      "offset": 4056,
+      "offset": 4204,
       "length": 2,
       "value": "-1"
     },
     {
       "filePath": "\/Users\/well\/Desktop\/ScanHelperSDK\/ScanHelperSDK\/ScanConfig.swift",
       "kind": "IntegerLiteral",
-      "offset": 4218,
+      "offset": 4366,
       "length": 1,
       "value": "6"
     },
     {
       "filePath": "\/Users\/well\/Desktop\/ScanHelperSDK\/ScanHelperSDK\/ScanConfig.swift",
       "kind": "BooleanLiteral",
-      "offset": 4456,
+      "offset": 4604,
       "length": 4,
       "value": "true"
     },
     {
       "filePath": "\/Users\/well\/Desktop\/ScanHelperSDK\/ScanHelperSDK\/ScanConfig.swift",
       "kind": "BooleanLiteral",
-      "offset": 5043,
+      "offset": 5191,
       "length": 4,
       "value": "true"
     },
     {
       "filePath": "\/Users\/well\/Desktop\/ScanHelperSDK\/ScanHelperSDK\/ScanConfig.swift",
       "kind": "BooleanLiteral",
-      "offset": 5319,
+      "offset": 5467,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/well\/Desktop\/ScanHelperSDK\/ScanHelperSDK\/ScanConfig.swift",
       "kind": "BooleanLiteral",
-      "offset": 5709,
+      "offset": 5857,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/well\/Desktop\/ScanHelperSDK\/ScanHelperSDK\/ScanConfig.swift",
       "kind": "BooleanLiteral",
-      "offset": 5807,
+      "offset": 5955,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/well\/Desktop\/ScanHelperSDK\/ScanHelperSDK\/ScanConfig.swift",
       "kind": "BooleanLiteral",
-      "offset": 6210,
+      "offset": 6355,
       "length": 4,
       "value": "true"
     },
@@ -5930,14 +5934,14 @@
     {
       "filePath": "\/Users\/well\/Desktop\/ScanHelperSDK\/ScanHelperSDK\/ScanHelper.swift",
       "kind": "BooleanLiteral",
-      "offset": 11699,
+      "offset": 11693,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/well\/Desktop\/ScanHelperSDK\/ScanHelperSDK\/ScanHelper.swift",
       "kind": "Array",
-      "offset": 13819,
+      "offset": 13813,
       "length": 2,
       "value": "[]"
     }

@@ -96,7 +96,7 @@ import _SwiftConcurrencyShims
     @objc get
     @objc set
   }
-  @objc public var isDebugDes: Swift.Bool {
+  @objc public var isDebug: Swift.Bool {
     @objc get
     @objc set
   }
