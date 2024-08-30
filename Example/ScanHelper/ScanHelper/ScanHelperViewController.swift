@@ -8,7 +8,7 @@
 import UIKit
 import ScanHelperSDK
 
-class ScanHelperViewController: UIViewController {
+class ScanHelperViewController: UIViewController, ScanHelperDelegate {
     /// 让控制器持有scanHelper对象,不然会被提前释放
     private let scanHelper = ScanHelper()
     
