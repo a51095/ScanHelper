@@ -55,9 +55,9 @@
 |     isPromptBox    |          bool           |二维码类型,识别成功时,是否展示框选提示，默认true|     展示     |  不展示 |
 |      isLimit       |          bool           |        是否自定义底部UI,默认false        |    自定义    |   默认UI   |
 |   isUnrestrained   |          bool           |        是否完全自定义UI,默认false        |    自定义    |   默认UI   |
-|     isDebug     |          bool           |        是否打印调试信息,默认true         |     打印     |  不打印  |
-|    soundSource     |    (String, String)?    |         扫描提示音,默认nil              | 有效资源展示 | 默认不展示 |
-|   animationImage   |        UIImage？        |         扫描动画样式图,默认nil         | 有效资源展示 | 默认不显示 |
+|     isDebug        |          bool           |        是否打印调试信息,默认true         |     打印     |  不打印  |
+|    sound     	     |         String?         |         扫描提示音,默认nil              | Bundle有效资源展示 | 默认不展示 |
+|   animationImage   |        UIImage？        |         扫描动画样式图,默认nil          | 有效资源展示 | 默认不显示 |
 | brightnessMinValue |         Double          |    自动开启闪光灯亮度对比值,默认true     | 小于此值开启 |   默认-1   |
 | brightnessMaxValue |         Double          |    自动关闭闪光灯亮度对比值,默认true     | 大于此值关闭 |   默认6    |
 |       preset       | AVCaptureSession.Preset |               扫描质量             | inputPriority  |    默认    |
