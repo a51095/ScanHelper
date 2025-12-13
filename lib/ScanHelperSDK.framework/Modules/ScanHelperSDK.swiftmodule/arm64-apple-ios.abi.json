@@ -1,8 +1,8 @@
 {
   "ABIRoot": {
     "kind": "Root",
-    "name": "TopLevel",
-    "printedName": "TopLevel",
+    "name": "ScanHelperSDK",
+    "printedName": "ScanHelperSDK",
     "children": [
       {
         "kind": "Import",
@@ -210,6 +210,20 @@
         ],
         "enumRawTypeName": "Int",
         "conformances": [
+          {
+            "kind": "Conformance",
+            "name": "Copyable",
+            "printedName": "Copyable",
+            "usr": "s:s8CopyableP",
+            "mangledName": "$ss8CopyableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Escapable",
+            "printedName": "Escapable",
+            "usr": "s:s9EscapableP",
+            "mangledName": "$ss9EscapableP"
+          },
           {
             "kind": "Conformance",
             "name": "Equatable",
@@ -503,6 +517,20 @@
         "conformances": [
           {
             "kind": "Conformance",
+            "name": "Copyable",
+            "printedName": "Copyable",
+            "usr": "s:s8CopyableP",
+            "mangledName": "$ss8CopyableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Escapable",
+            "printedName": "Escapable",
+            "usr": "s:s9EscapableP",
+            "mangledName": "$ss9EscapableP"
+          },
+          {
+            "kind": "Conformance",
             "name": "Equatable",
             "printedName": "Equatable",
             "usr": "s:SQ",
@@ -751,6 +779,20 @@
         ],
         "enumRawTypeName": "Int",
         "conformances": [
+          {
+            "kind": "Conformance",
+            "name": "Copyable",
+            "printedName": "Copyable",
+            "usr": "s:s8CopyableP",
+            "mangledName": "$ss8CopyableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Escapable",
+            "printedName": "Escapable",
+            "usr": "s:s9EscapableP",
+            "mangledName": "$ss9EscapableP"
+          },
           {
             "kind": "Conformance",
             "name": "Equatable",
@@ -1022,6 +1064,20 @@
           "ObjectiveC.NSObject"
         ],
         "conformances": [
+          {
+            "kind": "Conformance",
+            "name": "Copyable",
+            "printedName": "Copyable",
+            "usr": "s:s8CopyableP",
+            "mangledName": "$ss8CopyableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Escapable",
+            "printedName": "Escapable",
+            "usr": "s:s9EscapableP",
+            "mangledName": "$ss9EscapableP"
+          },
           {
             "kind": "Conformance",
             "name": "Equatable",
@@ -1307,6 +1363,20 @@
           "ObjectiveC.NSObject"
         ],
         "conformances": [
+          {
+            "kind": "Conformance",
+            "name": "Copyable",
+            "printedName": "Copyable",
+            "usr": "s:s8CopyableP",
+            "mangledName": "$ss8CopyableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Escapable",
+            "printedName": "Escapable",
+            "usr": "s:s9EscapableP",
+            "mangledName": "$ss9EscapableP"
+          },
           {
             "kind": "Conformance",
             "name": "Equatable",
@@ -1686,6 +1756,20 @@
           "ObjectiveC.NSObject"
         ],
         "conformances": [
+          {
+            "kind": "Conformance",
+            "name": "Copyable",
+            "printedName": "Copyable",
+            "usr": "s:s8CopyableP",
+            "mangledName": "$ss8CopyableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Escapable",
+            "printedName": "Escapable",
+            "usr": "s:s9EscapableP",
+            "mangledName": "$ss9EscapableP"
+          },
           {
             "kind": "Conformance",
             "name": "Equatable",
@@ -3031,6 +3115,20 @@
         "conformances": [
           {
             "kind": "Conformance",
+            "name": "Copyable",
+            "printedName": "Copyable",
+            "usr": "s:s8CopyableP",
+            "mangledName": "$ss8CopyableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Escapable",
+            "printedName": "Escapable",
+            "usr": "s:s9EscapableP",
+            "mangledName": "$ss9EscapableP"
+          },
+          {
+            "kind": "Conformance",
             "name": "Equatable",
             "printedName": "Equatable",
             "usr": "s:SQ",
@@ -3267,6 +3365,100 @@
                 "declKind": "Accessor",
                 "usr": "s:13ScanHelperSDK0A6ConfigC8isSquareSbvM",
                 "mangledName": "$s13ScanHelperSDK0A6ConfigC8isSquareSbvM",
+                "moduleName": "ScanHelperSDK",
+                "implicit": true,
+                "accessorKind": "_modify"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "isAutoStop",
+            "printedName": "isAutoStop",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Bool",
+                "printedName": "Swift.Bool",
+                "usr": "s:Sb"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "c:@M@ScanHelperSDK@objc(cs)ScanConfig(py)isAutoStop",
+            "mangledName": "$s13ScanHelperSDK0A6ConfigC10isAutoStopSbvp",
+            "moduleName": "ScanHelperSDK",
+            "declAttributes": [
+              "HasInitialValue",
+              "HasStorage",
+              "AccessControl",
+              "ObjC",
+              "RawDocComment"
+            ],
+            "hasStorage": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Bool",
+                    "printedName": "Swift.Bool",
+                    "usr": "s:Sb"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "c:@M@ScanHelperSDK@objc(cs)ScanConfig(im)isAutoStop",
+                "mangledName": "$s13ScanHelperSDK0A6ConfigC10isAutoStopSbvg",
+                "moduleName": "ScanHelperSDK",
+                "implicit": true,
+                "declAttributes": [
+                  "ObjC"
+                ],
+                "accessorKind": "get"
+              },
+              {
+                "kind": "Accessor",
+                "name": "Set",
+                "printedName": "Set()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Bool",
+                    "printedName": "Swift.Bool",
+                    "usr": "s:Sb"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "c:@M@ScanHelperSDK@objc(cs)ScanConfig(im)setIsAutoStop:",
+                "mangledName": "$s13ScanHelperSDK0A6ConfigC10isAutoStopSbvs",
+                "moduleName": "ScanHelperSDK",
+                "implicit": true,
+                "declAttributes": [
+                  "ObjC"
+                ],
+                "accessorKind": "set"
+              },
+              {
+                "kind": "Accessor",
+                "name": "Modify",
+                "printedName": "Modify()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:13ScanHelperSDK0A6ConfigC10isAutoStopSbvM",
+                "mangledName": "$s13ScanHelperSDK0A6ConfigC10isAutoStopSbvM",
                 "moduleName": "ScanHelperSDK",
                 "implicit": true,
                 "accessorKind": "_modify"
@@ -4774,6 +4966,20 @@
         "conformances": [
           {
             "kind": "Conformance",
+            "name": "Copyable",
+            "printedName": "Copyable",
+            "usr": "s:s8CopyableP",
+            "mangledName": "$ss8CopyableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Escapable",
+            "printedName": "Escapable",
+            "usr": "s:s9EscapableP",
+            "mangledName": "$ss9EscapableP"
+          },
+          {
+            "kind": "Conformance",
             "name": "Equatable",
             "printedName": "Equatable",
             "usr": "s:SQ",
@@ -4852,7 +5058,7 @@
             "genericSig": "<τ_0_0 where τ_0_0 : ScanHelperSDK.ScanHelperDelegate>",
             "sugared_genericSig": "<Self where Self : ScanHelperSDK.ScanHelperDelegate>",
             "protocolReq": true,
-            "intro_iOS": "11.0",
+            "intro_iOS": "12.0",
             "declAttributes": [
               "Optional",
               "ObjC",
@@ -4886,7 +5092,7 @@
             "genericSig": "<τ_0_0 where τ_0_0 : ScanHelperSDK.ScanHelperDelegate>",
             "sugared_genericSig": "<Self where Self : ScanHelperSDK.ScanHelperDelegate>",
             "protocolReq": true,
-            "intro_iOS": "11.0",
+            "intro_iOS": "12.0",
             "declAttributes": [
               "Optional",
               "ObjC",
@@ -4920,7 +5126,7 @@
             "genericSig": "<τ_0_0 where τ_0_0 : ScanHelperSDK.ScanHelperDelegate>",
             "sugared_genericSig": "<Self where Self : ScanHelperSDK.ScanHelperDelegate>",
             "protocolReq": true,
-            "intro_iOS": "11.0",
+            "intro_iOS": "12.0",
             "declAttributes": [
               "Optional",
               "ObjC",
@@ -4962,7 +5168,7 @@
             "genericSig": "<τ_0_0 where τ_0_0 : ScanHelperSDK.ScanHelperDelegate>",
             "sugared_genericSig": "<Self where Self : ScanHelperSDK.ScanHelperDelegate>",
             "protocolReq": true,
-            "intro_iOS": "11.0",
+            "intro_iOS": "12.0",
             "declAttributes": [
               "Optional",
               "ObjC",
@@ -4982,6 +5188,22 @@
         "declAttributes": [
           "AccessControl",
           "ObjC"
+        ],
+        "conformances": [
+          {
+            "kind": "Conformance",
+            "name": "Escapable",
+            "printedName": "Escapable",
+            "usr": "s:s9EscapableP",
+            "mangledName": "$ss9EscapableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Copyable",
+            "printedName": "Copyable",
+            "usr": "s:s8CopyableP",
+            "mangledName": "$ss8CopyableP"
+          }
         ]
       },
       {
@@ -5224,7 +5446,7 @@
             "usr": "c:@CM@ScanHelperSDK@objc(cs)ScanHelper(im)startWithSupView:scanConfig:scanRegion:scanType:scanHandler:",
             "mangledName": "$s13ScanHelperSDK0aB0C5start7supView10scanConfig0G6Region0G4Type0G7HandlerySo6UIViewC_AA0aH0CSo6CGRectVSaySo016AVMetadataObjectJ0aGyAA0A6ResultCcSgtF",
             "moduleName": "ScanHelperSDK",
-            "intro_iOS": "11.0",
+            "intro_iOS": "12.0",
             "objc_name": "startWithSupView:scanConfig:scanRegion:scanType:scanHandler:",
             "declAttributes": [
               "Dynamic",
@@ -5250,7 +5472,7 @@
             "usr": "c:@CM@ScanHelperSDK@objc(cs)ScanHelper(im)stop",
             "mangledName": "$s13ScanHelperSDK0aB0C4stopyyF",
             "moduleName": "ScanHelperSDK",
-            "intro_iOS": "11.0",
+            "intro_iOS": "12.0",
             "declAttributes": [
               "Dynamic",
               "AccessControl",
@@ -5281,7 +5503,7 @@
             "usr": "c:@CM@ScanHelperSDK@objc(cs)ScanHelper(im)torchFlashWithOpen:",
             "mangledName": "$s13ScanHelperSDK0aB0C10torchFlash4openySb_tF",
             "moduleName": "ScanHelperSDK",
-            "intro_iOS": "11.0",
+            "intro_iOS": "12.0",
             "objc_name": "torchFlashWithOpen:",
             "declAttributes": [
               "Dynamic",
@@ -5380,7 +5602,7 @@
             "usr": "c:@CM@ScanHelperSDK@objc(cs)ScanHelper(im)detectorWithImage:ofType:context:options:",
             "mangledName": "$s13ScanHelperSDK0aB0C8detector5image6ofType7context7optionsSaySo9CIFeatureCGSgSo7UIImageC_SSSo9CIContextCSgSDySSypGSgtF",
             "moduleName": "ScanHelperSDK",
-            "intro_iOS": "11.0",
+            "intro_iOS": "12.0",
             "objc_name": "detectorWithImage:ofType:context:options:",
             "declAttributes": [
               "Dynamic",
@@ -5423,6 +5645,7 @@
             "declAttributes": [
               "Dynamic",
               "ObjC",
+              "Preconcurrency",
               "Custom",
               "AccessControl",
               "RawDocComment"
@@ -5542,6 +5765,20 @@
         "conformances": [
           {
             "kind": "Conformance",
+            "name": "Copyable",
+            "printedName": "Copyable",
+            "usr": "s:s8CopyableP",
+            "mangledName": "$ss8CopyableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Escapable",
+            "printedName": "Escapable",
+            "usr": "s:s9EscapableP",
+            "mangledName": "$ss9EscapableP"
+          },
+          {
+            "kind": "Conformance",
             "name": "Equatable",
             "printedName": "Equatable",
             "usr": "s:SQ",
@@ -5597,66 +5834,17 @@
   "ConstValues": [
     {
       "filePath": "\/Users\/well\/Desktop\/ScanHelperSDK\/ScanHelperSDK\/ScanView.swift",
-      "kind": "StringLiteral",
-      "offset": 199,
-      "length": 13,
-      "value": "\"ScanHelperSDK.HighlightView\""
-    },
-    {
-      "filePath": "\/Users\/well\/Desktop\/ScanHelperSDK\/ScanHelperSDK\/ScanView.swift",
-      "kind": "StringLiteral",
-      "offset": 791,
-      "length": 12,
-      "value": "\"ScanHelperSDK.AutoFocuView\""
-    },
-    {
-      "filePath": "\/Users\/well\/Desktop\/ScanHelperSDK\/ScanHelperSDK\/ScanView.swift",
       "kind": "BooleanLiteral",
       "offset": 3588,
       "length": 4,
       "value": "true"
     },
     {
-      "filePath": "\/Users\/well\/Desktop\/ScanHelperSDK\/ScanHelperSDK\/ScanView.swift",
-      "kind": "StringLiteral",
-      "offset": 3199,
-      "length": 8,
-      "value": "\"ScanHelperSDK.ScanView\""
-    },
-    {
       "filePath": "\/Users\/well\/Desktop\/ScanHelperSDK\/ScanHelperSDK\/ScanConfig.swift",
       "kind": "IntegerLiteral",
       "offset": 391,
       "length": 5,
       "value": "1"
-    },
-    {
-      "filePath": "\/Users\/well\/Desktop\/ScanHelperSDK\/ScanHelperSDK\/ScanConfig.swift",
-      "kind": "IntegerLiteral",
-      "offset": 391,
-      "length": 5,
-      "value": "1"
-    },
-    {
-      "filePath": "\/Users\/well\/Desktop\/ScanHelperSDK\/ScanHelperSDK\/ScanConfig.swift",
-      "kind": "IntegerLiteral",
-      "offset": 601,
-      "length": 6,
-      "value": "1"
-    },
-    {
-      "filePath": "\/Users\/well\/Desktop\/ScanHelperSDK\/ScanHelperSDK\/ScanConfig.swift",
-      "kind": "IntegerLiteral",
-      "offset": 609,
-      "length": 7,
-      "value": "2"
-    },
-    {
-      "filePath": "\/Users\/well\/Desktop\/ScanHelperSDK\/ScanHelperSDK\/ScanConfig.swift",
-      "kind": "IntegerLiteral",
-      "offset": 618,
-      "length": 4,
-      "value": "3"
     },
     {
       "filePath": "\/Users\/well\/Desktop\/ScanHelperSDK\/ScanHelperSDK\/ScanConfig.swift",
@@ -5692,27 +5880,6 @@
       "offset": 879,
       "length": 4,
       "value": "2"
-    },
-    {
-      "filePath": "\/Users\/well\/Desktop\/ScanHelperSDK\/ScanHelperSDK\/ScanConfig.swift",
-      "kind": "IntegerLiteral",
-      "offset": 867,
-      "length": 10,
-      "value": "1"
-    },
-    {
-      "filePath": "\/Users\/well\/Desktop\/ScanHelperSDK\/ScanHelperSDK\/ScanConfig.swift",
-      "kind": "IntegerLiteral",
-      "offset": 879,
-      "length": 4,
-      "value": "2"
-    },
-    {
-      "filePath": "\/Users\/well\/Desktop\/ScanHelperSDK\/ScanHelperSDK\/ScanConfig.swift",
-      "kind": "StringLiteral",
-      "offset": 933,
-      "length": 10,
-      "value": "\"ScanHelperSDK.ScanResult\""
     },
     {
       "filePath": "\/Users\/well\/Desktop\/ScanHelperSDK\/ScanHelperSDK\/ScanConfig.swift",
@@ -5815,133 +5982,140 @@
     {
       "filePath": "\/Users\/well\/Desktop\/ScanHelperSDK\/ScanHelperSDK\/ScanConfig.swift",
       "kind": "BooleanLiteral",
-      "offset": 3768,
+      "offset": 3753,
       "length": 4,
       "value": "true"
     },
     {
       "filePath": "\/Users\/well\/Desktop\/ScanHelperSDK\/ScanHelperSDK\/ScanConfig.swift",
       "kind": "BooleanLiteral",
-      "offset": 3865,
+      "offset": 3863,
       "length": 4,
       "value": "true"
     },
     {
       "filePath": "\/Users\/well\/Desktop\/ScanHelperSDK\/ScanHelperSDK\/ScanConfig.swift",
       "kind": "BooleanLiteral",
-      "offset": 4004,
+      "offset": 3960,
+      "length": 4,
+      "value": "true"
+    },
+    {
+      "filePath": "\/Users\/well\/Desktop\/ScanHelperSDK\/ScanHelperSDK\/ScanConfig.swift",
+      "kind": "BooleanLiteral",
+      "offset": 4099,
       "length": 4,
       "value": "true"
     },
     {
       "filePath": "\/Users\/well\/Desktop\/ScanHelperSDK\/ScanHelperSDK\/ScanConfig.swift",
       "kind": "IntegerLiteral",
-      "offset": 4204,
+      "offset": 4299,
       "length": 2,
       "value": "-1"
     },
     {
       "filePath": "\/Users\/well\/Desktop\/ScanHelperSDK\/ScanHelperSDK\/ScanConfig.swift",
       "kind": "IntegerLiteral",
-      "offset": 4366,
+      "offset": 4461,
       "length": 1,
       "value": "6"
     },
     {
       "filePath": "\/Users\/well\/Desktop\/ScanHelperSDK\/ScanHelperSDK\/ScanConfig.swift",
       "kind": "BooleanLiteral",
-      "offset": 4604,
+      "offset": 4699,
       "length": 4,
       "value": "true"
     },
     {
       "filePath": "\/Users\/well\/Desktop\/ScanHelperSDK\/ScanHelperSDK\/ScanConfig.swift",
       "kind": "BooleanLiteral",
-      "offset": 5191,
+      "offset": 5286,
       "length": 4,
       "value": "true"
     },
     {
       "filePath": "\/Users\/well\/Desktop\/ScanHelperSDK\/ScanHelperSDK\/ScanConfig.swift",
       "kind": "BooleanLiteral",
-      "offset": 5467,
+      "offset": 5562,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/well\/Desktop\/ScanHelperSDK\/ScanHelperSDK\/ScanConfig.swift",
       "kind": "BooleanLiteral",
-      "offset": 5857,
+      "offset": 5952,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/well\/Desktop\/ScanHelperSDK\/ScanHelperSDK\/ScanConfig.swift",
       "kind": "BooleanLiteral",
-      "offset": 5955,
+      "offset": 6050,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/well\/Desktop\/ScanHelperSDK\/ScanHelperSDK\/ScanConfig.swift",
       "kind": "BooleanLiteral",
-      "offset": 6355,
+      "offset": 6450,
       "length": 4,
       "value": "true"
     },
     {
       "filePath": "\/Users\/well\/Desktop\/ScanHelperSDK\/ScanHelperSDK\/ScanHelper.swift",
       "kind": "IntegerLiteral",
-      "offset": 983,
+      "offset": 969,
       "length": 1,
       "value": "1"
     },
     {
       "filePath": "\/Users\/well\/Desktop\/ScanHelperSDK\/ScanHelperSDK\/ScanHelper.swift",
       "kind": "IntegerLiteral",
-      "offset": 1082,
+      "offset": 1068,
       "length": 1,
       "value": "1"
     },
     {
       "filePath": "\/Users\/well\/Desktop\/ScanHelperSDK\/ScanHelperSDK\/ScanHelper.swift",
       "kind": "IntegerLiteral",
-      "offset": 1169,
+      "offset": 1155,
       "length": 1,
       "value": "1"
     },
     {
       "filePath": "\/Users\/well\/Desktop\/ScanHelperSDK\/ScanHelperSDK\/ScanHelper.swift",
       "kind": "BooleanLiteral",
-      "offset": 1351,
+      "offset": 1337,
       "length": 4,
       "value": "true"
     },
     {
       "filePath": "\/Users\/well\/Desktop\/ScanHelperSDK\/ScanHelperSDK\/ScanHelper.swift",
       "kind": "StringLiteral",
-      "offset": 1440,
+      "offset": 1426,
       "length": 22,
       "value": "\"userInteractiveQueue\""
     },
     {
       "filePath": "\/Users\/well\/Desktop\/ScanHelperSDK\/ScanHelperSDK\/ScanHelper.swift",
       "kind": "BooleanLiteral",
-      "offset": 2366,
+      "offset": 2352,
       "length": 4,
       "value": "true"
     },
     {
       "filePath": "\/Users\/well\/Desktop\/ScanHelperSDK\/ScanHelperSDK\/ScanHelper.swift",
       "kind": "BooleanLiteral",
-      "offset": 11693,
+      "offset": 11679,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/well\/Desktop\/ScanHelperSDK\/ScanHelperSDK\/ScanHelper.swift",
       "kind": "Array",
-      "offset": 13813,
+      "offset": 13799,
       "length": 2,
       "value": "[]"
     }

@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		3FA451BE2A08C44C00979E27 /* grusScreen.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 3FA451BD2A08C44C00979E27 /* grusScreen.jpg */; };
+		3FA8E0F72EEDB6EA00AF6A0B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FA8E0F62EEDB6EA00AF6A0B /* SceneDelegate.swift */; };
 		3FFC5BD72A066B8C0002191F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FFC5BD62A066B8C0002191F /* AppDelegate.swift */; };
 		3FFC5BDB2A066B8C0002191F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FFC5BDA2A066B8C0002191F /* ViewController.swift */; };
 		3FFC5BE02A066B8D0002191F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3FFC5BDF2A066B8D0002191F /* Assets.xcassets */; };
@@ -19,6 +20,7 @@
 
 /* Begin PBXFileReference section */
 		3FA451BD2A08C44C00979E27 /* grusScreen.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = grusScreen.jpg; sourceTree = "<group>"; };
+		3FA8E0F62EEDB6EA00AF6A0B /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		3FFC5BD32A066B8C0002191F /* ScanHelper.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ScanHelper.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3FFC5BD62A066B8C0002191F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3FFC5BDA2A066B8C0002191F /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -64,6 +66,7 @@
 			isa = PBXGroup;
 			children = (
 				3FFC5BD62A066B8C0002191F /* AppDelegate.swift */,
+				3FA8E0F62EEDB6EA00AF6A0B /* SceneDelegate.swift */,
 				3FFC5BDA2A066B8C0002191F /* ViewController.swift */,
 				3FFC5BEA2A066CB60002191F /* ScanHelperViewController.swift */,
 			);
@@ -119,7 +122,7 @@
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
 				LastSwiftUpdateCheck = 1430;
-				LastUpgradeCheck = 1430;
+				LastUpgradeCheck = 2610;
 				TargetAttributes = {
 					3FFC5BD22A066B8C0002191F = {
 						CreatedOnToolsVersion = 14.3;
@@ -161,6 +164,7 @@
 /* Begin PBXShellScriptBuildPhase section */
 		3F38CE9B2AF912F9000BC560 /* Copy ScanHelperSDK */ = {
 			isa = PBXShellScriptBuildPhase;
+			alwaysOutOfDate = 1;
 			buildActionMask = 2147483647;
 			files = (
 			);
@@ -175,7 +179,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "# 设置 DERIVED_DATA_DIR 环境变量\nDERIVED_DATA_DIR=\"$HOME/Library/Developer/Xcode/DerivedData\"\n\n# 检查 Derived Data 目录是否存在\nif [ -z \"$DERIVED_DATA_DIR\" ]; then\n    echo \"Error: The DERIVED_DATA_DIR environment variable is not set.\"\n    exit 1\nfi\n\n# 查找 \"ScanHelperSDK.framework\"\nFOUND_DIRS=$(find \"$DERIVED_DATA_DIR\" -type d -name \"ScanHelperSDK.framework\" -path \"*/Release-iphoneos/ScanHelperSDK.framework\")\n\n# 设置目标路径\nTARGET_PATH=\"$SRCROOT/../../lib/ScanHelperSDK.framework/\"\n\n# 检查是否找到目标目录\nif [ -z \"$FOUND_DIRS\" ]; then\n    echo \"Error: 'ScanHelperSDK.framework' not found in Derived Data directory.\"\nfi\n\n# 如果不存在,创建目标目录\nmkdir -p \"$TARGET_PATH\"\n\n# 拷贝 \"ScanHelperSDK.framework\" 及其内容到目标路径\nfor dir in $FOUND_DIRS; do\n    cp -Rf \"$dir/\"* \"$TARGET_PATH\"\ndone\n\n# 检查是否复制成功\nif [ $? -eq 0 ]; then\n    echo \"'ScanHelperSDK.framework' Copy Success!\"\nelse\n    echo \"Error: Failed to copy 'ScanHelperSDK.framework'.\"\nfi\n";
+			shellScript = "# 设置 DERIVED_DATA_DIR 环境变量\nDERIVED_DATA_DIR=\"$HOME/Library/Developer/Xcode/DerivedData\"\n\n# 设置目标路径\nTARGET_PATH=\"$SRCROOT/../../lib/ScanHelperSDK.framework\"\n\n# 步骤1: 确保预存的框架存在\nif [ ! -d \"$TARGET_PATH\" ]; then\n    echo \"Error: Pre-stored framework not found at: $TARGET_PATH\"\n    echo \"Please ensure ScanHelperSDK.framework exists in the lib directory.\"\n    exit 1\nfi\n\n# 步骤2: 查找编译生成的新版本框架\necho \"Looking for compiled ScanHelperSDK.framework in DerivedData...\"\nCOMPILED_FRAMEWORK=\"\"\n\n# 方法1: 先尝试精确查找 Release-iphoneos\nCOMPILED_FRAMEWORK=$(find \"$DERIVED_DATA_DIR\" -type d -name \"ScanHelperSDK.framework\" -path \"*Release-iphoneos*\" 2>/dev/null | head -1)\n\n# 步骤3: 如果找到编译版本，替换预存版本\nif [ -n \"$COMPILED_FRAMEWORK\" ] && [ -d \"$COMPILED_FRAMEWORK\" ]; then\n    echo \"✓ Found compiled framework: $COMPILED_FRAMEWORK\"\n    \n    # 验证编译的框架是否有效\n    if [ ! -f \"$COMPILED_FRAMEWORK/Info.plist\" ]; then\n        echo \"Warning: Compiled framework missing Info.plist, using pre-stored version\"\n    elif [ ! -f \"$COMPILED_FRAMEWORK/ScanHelperSDK\" ] && [ -z \"$(ls \"$COMPILED_FRAMEWORK\"/ScanHelperSDK.* 2>/dev/null)\" ]; then\n        echo \"Warning: Compiled framework missing binary, using pre-stored version\"\n    else\n        # 删除旧的目标框架\n        echo \"Replacing pre-stored framework with compiled version...\"\n        rm -rf \"$TARGET_PATH\"\n        \n        # 复制新的编译框架\n        if cp -Rf \"$COMPILED_FRAMEWORK\" \"$TARGET_PATH\"; then\n            echo \"✓ Successfully updated with compiled framework\"\n        else\n            echo \"Error: Failed to copy compiled framework\"\n            echo \"Please check if the compiled framework is corrupted.\"\n            exit 1\n        fi\n    fi\nelse\n    echo \"No compiled framework found, using pre-stored version from lib directory\"\nfi\n\n# 步骤4: 最终验证目标框架\necho \"\"\necho \"=== Final Framework Status ===\"\necho \"Path: $TARGET_PATH\"\n\nif [ -d \"$TARGET_PATH\" ]; then\n    # 检查框架完整性\n    HAS_INFO_PLIST=\"No\"\n    HAS_BINARY=\"No\"\n    \n    if [ -f \"$TARGET_PATH/Info.plist\" ]; then\n        HAS_INFO_PLIST=\"Yes\"\n    fi\n    \n    if [ -f \"$TARGET_PATH/ScanHelperSDK\" ]; then\n        HAS_BINARY=\"Yes\"\n    elif ls \"$TARGET_PATH\"/ScanHelperSDK.* 1>/dev/null 2>&1; then\n        HAS_BINARY=\"Yes (variant)\"\n    fi\n    \n    # 显示结果\n    echo \"✓ Framework directory exists\"\n    echo \"  - Contains Info.plist: $HAS_INFO_PLIST\"\n    echo \"  - Contains binary: $HAS_BINARY\"\n    \n    if [ \"$HAS_INFO_PLIST\" = \"Yes\" ] && [ \"$HAS_BINARY\" = \"Yes\" ]; then\n        echo \"✓ Framework is valid and ready for use\"\n    else\n        echo \"Warning: Framework may be incomplete\"\n    fi\nelse\n    echo \"Error: Framework not found at target path\"\n    exit 1\nfi\n\necho \"Script completed successfully!\"\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -187,6 +191,7 @@
 				3FFC5BDB2A066B8C0002191F /* ViewController.swift in Sources */,
 				3FFC5BD72A066B8C0002191F /* AppDelegate.swift in Sources */,
 				3FFC5BEB2A066CB60002191F /* ScanHelperViewController.swift in Sources */,
+				3FA8E0F72EEDB6EA00AF6A0B /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -208,6 +213,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
@@ -238,8 +244,10 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEVELOPMENT_TEAM = GHMZDPRV3P;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -259,6 +267,7 @@
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
@@ -268,6 +277,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
@@ -298,8 +308,10 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEVELOPMENT_TEAM = GHMZDPRV3P;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
@@ -312,6 +324,7 @@
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
 				SWIFT_COMPILATION_MODE = wholemodule;
 				SWIFT_OPTIMIZATION_LEVEL = "-O";
 				VALIDATE_PRODUCT = YES;
@@ -326,7 +339,7 @@
 				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = GHMZDPRV3P;
+				DEVELOPMENT_TEAM = KTQAGL8R5U;
 				FRAMEWORK_SEARCH_PATHS = "\"$(SRCROOT)/../../lib/\"";
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Resources/Info.plist;
@@ -335,12 +348,12 @@
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen.storyboard;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 0.1.5;
+				MARKETING_VERSION = 0.1.6;
 				PRODUCT_BUNDLE_IDENTIFIER = com.well.ScanHelper;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -357,7 +370,7 @@
 				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = GHMZDPRV3P;
+				DEVELOPMENT_TEAM = KTQAGL8R5U;
 				FRAMEWORK_SEARCH_PATHS = "\"$(SRCROOT)/../../lib/\"";
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Resources/Info.plist;
@@ -366,12 +379,12 @@
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen.storyboard;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 0.1.5;
+				MARKETING_VERSION = 0.1.6;
 				PRODUCT_BUNDLE_IDENTIFIER = com.well.ScanHelper;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;

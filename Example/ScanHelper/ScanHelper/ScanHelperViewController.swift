@@ -22,10 +22,11 @@ class ScanHelperViewController: UIViewController, ScanHelperDelegate {
         let config = ScanConfig()
         config.sound = Bundle.main.path(forResource: "scan_audio", ofType: "wav")
         config.animationImage = UIImage(named: "scan_animation")
-        
+//        config.isAutoStop = false
         scanHelper.start(supView: view, scanConfig: config) { [weak self] (res) in
             guard let self = self else { return }
-            print(res)
+            let result = res as ScanResult
+            print(result.value,result.metadataType)
             self.navigationController?.popViewController(animated: true)
         }
     }

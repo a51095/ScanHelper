@@ -5,7 +5,7 @@
 # 注意事项:
 ### ⚠️⚠️⚠️真机环境运行⚠️⚠️⚠️
 
-###### 📣📣📣　platform:　`≥ iOS 11`
+###### 📣📣📣　platform:　`≥ iOS 12`
 ###### 📣📣📣　language:　`Swift`、`Objective-C`
 
 
@@ -36,7 +36,7 @@
 ###### 🎉　使用简单,犹如芊芊少女般丝滑、流畅;
 ###### 🍀　严格遵守`Swift`代码规范,`Demo`工程`0`警告;
 ###### 💥　无内存泄漏问题,合理释放对象，及时回收内存资源;
-###### 🏄　静态库`ScanHelperSDK.framework`,身轻如燕,仅`1.2`M大小;
+###### 🏄　静态库`ScanHelperSDK.framework`,身轻如燕,仅`1.3`M大小;
 ###### 🏆　轻量级,只开启基础使用功能,仅占用`12 ~ 16`个内存, 启用全部功能, 内存占用在`120 ~ 130`之间;
 
 
@@ -49,6 +49,7 @@
 |      isSquare      |          bool           |       是否展示正方形边框,默认true        |     展示     |   不展示   |
 |    isSingleFocu    |          bool           |        是否开启单点聚焦,默认false        |     开启     |    关闭    |
 |    isAutoFocus     |          bool           |        是否开启自动对焦,默认true         |     开启     |  关闭   |
+|    isAutoStop      |          bool           |        是否开启自动停止扫描,默认true         |     开启     |  关闭   |
 |    isDoubleTap     |          bool           |        是否支持双击手势,默认true         |     支持     | 不支持  |
 |       isZoom       |          bool           |        是否支持缩放手势,默认true         |     支持     |  不支持 |
 |     isHasTorch     |          bool           |  是否支持光感检测,自动打开闪光灯,默认true  |     支持     |  不支持 |
