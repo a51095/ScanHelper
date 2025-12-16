@@ -427,10 +427,10 @@ SWIFT_CLASS("_TtC13ScanHelperSDK10ScanHelper")
 @class CIContext;
 @class CIFeature;
 @interface ScanHelper (SWIFT_EXTENSION(ScanHelperSDK))
-- (void)startWithSupView:(UIView * _Nonnull)supView scanConfig:(ScanConfig * _Nonnull)scanConfig scanRegion:(CGRect)scanRegion scanType:(NSArray<AVMetadataObjectType> * _Nonnull)scanType scanHandler:(void (^ _Nullable)(ScanResult * _Nonnull))scanHandler SWIFT_AVAILABILITY(ios,introduced=12.0);
-- (void)stop SWIFT_AVAILABILITY(ios,introduced=12.0);
-- (void)torchFlashWithOpen:(BOOL)open SWIFT_AVAILABILITY(ios,introduced=12.0);
-- (NSArray<CIFeature *> * _Nullable)detectorWithImage:(UIImage * _Nonnull)image ofType:(NSString * _Nonnull)ofType context:(CIContext * _Nullable)context options:(NSDictionary<NSString *, id> * _Nullable)options SWIFT_WARN_UNUSED_RESULT SWIFT_AVAILABILITY(ios,introduced=12.0);
+- (void)startWithSupView:(UIView * _Nonnull)supView scanConfig:(ScanConfig * _Nonnull)scanConfig scanRegion:(CGRect)scanRegion scanType:(NSArray<AVMetadataObjectType> * _Nonnull)scanType scanHandler:(void (^ _Nullable)(ScanResult * _Nonnull))scanHandler SWIFT_AVAILABILITY(ios,introduced=13.0);
+- (void)stop SWIFT_AVAILABILITY(ios,introduced=13.0);
+- (void)torchFlashWithOpen:(BOOL)open SWIFT_AVAILABILITY(ios,introduced=13.0);
+- (NSArray<CIFeature *> * _Nullable)detectorWithImage:(UIImage * _Nonnull)image ofType:(NSString * _Nonnull)ofType context:(CIContext * _Nullable)context options:(NSDictionary<NSString *, id> * _Nullable)options SWIFT_WARN_UNUSED_RESULT SWIFT_AVAILABILITY(ios,introduced=13.0);
 @end
 
 @class UIGestureRecognizer;

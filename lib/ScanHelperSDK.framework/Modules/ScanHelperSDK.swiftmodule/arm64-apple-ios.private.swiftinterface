@@ -1,6 +1,6 @@
 // swift-interface-format-version: 1.0
 // swift-compiler-version: Apple Swift version 6.2.1 effective-5.10 (swiftlang-6.2.1.4.8 clang-1700.4.4.1)
-// swift-module-flags: -target arm64-apple-ios12.0 -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -enable-experimental-feature DebugDescriptionMacro -enable-bare-slash-regex -module-name ScanHelperSDK
+// swift-module-flags: -target arm64-apple-ios13.0 -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -enable-experimental-feature DebugDescriptionMacro -enable-bare-slash-regex -module-name ScanHelperSDK
 // swift-module-flags-ignorable: -no-verify-emitted-module-interface -formal-cxx-interoperability-mode=off -interface-compiler-version 6.2.1
 import AVFoundation
 import Foundation
@@ -128,15 +128,15 @@ import _SwiftConcurrencyShims
 }
 extension ScanHelperSDK.ScanHelper {
   #if compiler(>=5.3) && $NonescapableTypes
-  @available(iOS 12.0, *)
+  @available(iOS 13.0, *)
   @objc dynamic public func start(supView: UIKit.UIView, scanConfig: ScanHelperSDK.ScanConfig = ScanConfig(), scanRegion: CoreFoundation.CGRect = .zero, scanType: [AVFoundation.AVMetadataObject.ObjectType] = [], scanHandler: ((ScanHelperSDK.ScanResult) -> Swift.Void)? = nil)
   #endif
-  @available(iOS 12.0, *)
+  @available(iOS 13.0, *)
   @objc dynamic public func stop()
-  @available(iOS 12.0, *)
+  @available(iOS 13.0, *)
   @objc dynamic public func torchFlash(open: Swift.Bool)
   #if compiler(>=5.3) && $NonescapableTypes
-  @available(iOS 12.0, *)
+  @available(iOS 13.0, *)
   @objc dynamic public func detector(image: UIKit.UIImage, ofType: Swift.String = CIDetectorTypeQRCode, context: CoreImage.CIContext? = nil, options: [Swift.String : Any]? = [CIDetectorAccuracy: CIDetectorAccuracyHigh]) -> Swift.Array<CoreImage.CIFeature>?
   #endif
 }
