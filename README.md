@@ -5,7 +5,7 @@
 # 注意事项:
 ### ⚠️⚠️⚠️真机环境运行⚠️⚠️⚠️
 
-###### 📣📣📣　platform:　`≥ iOS 12`
+###### 📣📣📣　platform:　`≥ iOS 13`
 ###### 📣📣📣　language:　`Swift`、`Objective-C`
 
 
