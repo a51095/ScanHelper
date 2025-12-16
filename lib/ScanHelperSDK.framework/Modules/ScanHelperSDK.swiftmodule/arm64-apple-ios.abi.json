@@ -5446,7 +5446,7 @@
             "usr": "c:@CM@ScanHelperSDK@objc(cs)ScanHelper(im)startWithSupView:scanConfig:scanRegion:scanType:scanHandler:",
             "mangledName": "$s13ScanHelperSDK0aB0C5start7supView10scanConfig0G6Region0G4Type0G7HandlerySo6UIViewC_AA0aH0CSo6CGRectVSaySo016AVMetadataObjectJ0aGyAA0A6ResultCcSgtF",
             "moduleName": "ScanHelperSDK",
-            "intro_iOS": "12.0",
+            "intro_iOS": "13.0",
             "objc_name": "startWithSupView:scanConfig:scanRegion:scanType:scanHandler:",
             "declAttributes": [
               "Dynamic",
@@ -5472,7 +5472,7 @@
             "usr": "c:@CM@ScanHelperSDK@objc(cs)ScanHelper(im)stop",
             "mangledName": "$s13ScanHelperSDK0aB0C4stopyyF",
             "moduleName": "ScanHelperSDK",
-            "intro_iOS": "12.0",
+            "intro_iOS": "13.0",
             "declAttributes": [
               "Dynamic",
               "AccessControl",
@@ -5503,7 +5503,7 @@
             "usr": "c:@CM@ScanHelperSDK@objc(cs)ScanHelper(im)torchFlashWithOpen:",
             "mangledName": "$s13ScanHelperSDK0aB0C10torchFlash4openySb_tF",
             "moduleName": "ScanHelperSDK",
-            "intro_iOS": "12.0",
+            "intro_iOS": "13.0",
             "objc_name": "torchFlashWithOpen:",
             "declAttributes": [
               "Dynamic",
@@ -5602,7 +5602,7 @@
             "usr": "c:@CM@ScanHelperSDK@objc(cs)ScanHelper(im)detectorWithImage:ofType:context:options:",
             "mangledName": "$s13ScanHelperSDK0aB0C8detector5image6ofType7context7optionsSaySo9CIFeatureCGSgSo7UIImageC_SSSo9CIContextCSgSDySSypGSgtF",
             "moduleName": "ScanHelperSDK",
-            "intro_iOS": "12.0",
+            "intro_iOS": "13.0",
             "objc_name": "detectorWithImage:ofType:context:options:",
             "declAttributes": [
               "Dynamic",
@@ -6066,56 +6066,49 @@
     {
       "filePath": "\/Users\/well\/Desktop\/ScanHelperSDK\/ScanHelperSDK\/ScanHelper.swift",
       "kind": "IntegerLiteral",
-      "offset": 969,
+      "offset": 1688,
       "length": 1,
       "value": "1"
     },
     {
       "filePath": "\/Users\/well\/Desktop\/ScanHelperSDK\/ScanHelperSDK\/ScanHelper.swift",
       "kind": "IntegerLiteral",
-      "offset": 1068,
+      "offset": 1787,
       "length": 1,
       "value": "1"
     },
     {
       "filePath": "\/Users\/well\/Desktop\/ScanHelperSDK\/ScanHelperSDK\/ScanHelper.swift",
       "kind": "IntegerLiteral",
-      "offset": 1155,
+      "offset": 1874,
       "length": 1,
       "value": "1"
     },
     {
       "filePath": "\/Users\/well\/Desktop\/ScanHelperSDK\/ScanHelperSDK\/ScanHelper.swift",
       "kind": "BooleanLiteral",
-      "offset": 1337,
+      "offset": 2056,
       "length": 4,
       "value": "true"
     },
     {
       "filePath": "\/Users\/well\/Desktop\/ScanHelperSDK\/ScanHelperSDK\/ScanHelper.swift",
       "kind": "StringLiteral",
-      "offset": 1426,
+      "offset": 2145,
       "length": 22,
       "value": "\"userInteractiveQueue\""
     },
     {
       "filePath": "\/Users\/well\/Desktop\/ScanHelperSDK\/ScanHelperSDK\/ScanHelper.swift",
       "kind": "BooleanLiteral",
-      "offset": 2352,
+      "offset": 3071,
       "length": 4,
       "value": "true"
     },
     {
       "filePath": "\/Users\/well\/Desktop\/ScanHelperSDK\/ScanHelperSDK\/ScanHelper.swift",
-      "kind": "BooleanLiteral",
-      "offset": 11679,
-      "length": 5,
-      "value": "false"
-    },
-    {
-      "filePath": "\/Users\/well\/Desktop\/ScanHelperSDK\/ScanHelperSDK\/ScanHelper.swift",
       "kind": "Array",
-      "offset": 13799,
+      "offset": 15591,
       "length": 2,
       "value": "[]"
     }
