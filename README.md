@@ -1,5 +1,5 @@
 # ScanHelper
-### `Swift5.0`，基于系统API封装的扫描二维码、条形码、等多种条码扫描组件
+### `Swift5.0`，基于系统API封装的扫描二维码、条形码、等多种机器可读码，扫描组件
 
 
 # 注意事项:
@@ -129,7 +129,7 @@ pod 'ScanHelper'
 ### 1）基础使用（单一识别结果,默认使用方式）
 
 ``` swift
-/// 让控制器持有scanHelper对象,不然会被提前释放
+/// 让控制器持有scanHelper对象,不然会自动释放
 let scanHelper = ScanHelper()
 override func viewDidLoad() {
 	super.viewDidLoad()
@@ -144,7 +144,7 @@ override func viewDidLoad() {
 ### 2）进阶使用（动画效果,使用属性,调整扫描框样式）
 
 ``` swift
-/// 让控制器持有scanHelper对象,不然会被提前释放
+/// 让控制器持有scanHelper对象,不然会自动释放
 let scanHelper = ScanHelper()
 
 override func viewDidLoad() {
@@ -178,7 +178,7 @@ override func viewDidLoad() {
 ``` swift
 class ScanHelperViewController: UIViewController, ScanHelperDelegate {
 
-	/// 让控制器持有scanHelper对象,不然会被提前释放
+	/// 让控制器持有scanHelper对象,不然会自动释放
 	let scanHelper = ScanHelper()
 
 	override func viewDidLoad() {
@@ -189,7 +189,7 @@ class ScanHelperViewController: UIViewController, ScanHelperDelegate {
 		config.isUnrestrained = true
 		
 		// ⚠️⚠️⚠️scanHandler回调,仅获取单一扫描结果
-		// 通过代理方法，获取多个扫描结果
+		// 通过设置代理，获取多个扫描结果
 		scanHelper.delegate = self
 		scanHelper.start(supView: view, scanConfig: config)
 	}
@@ -244,7 +244,7 @@ class ScanHelperViewController: UIViewController, ScanHelperDelegate {
  @discussion
     None
  */
-@available(iOS 11.0, *)
+@available(iOS 13.0, *)
 @objc func start(supView: UIView, scanConfig: ScanConfig, scanRegion: CGRect, scanType: [AVMetadataObject.ObjectType], scanHandler: ((ScanResult) -> Void)?)
 ```
 
@@ -254,7 +254,7 @@ class ScanHelperViewController: UIViewController, ScanHelperDelegate {
  @discussion
     None
  */
-@available(iOS 11.0, *)
+@available(iOS 13.0, *)
 @objc func stop()
 ```
 
@@ -270,7 +270,7 @@ class ScanHelperViewController: UIViewController, ScanHelperDelegate {
  @discussion
     None
  */
-@available(iOS 11.0, *)
+@available(iOS 13.0, *)
 @objc optional func scanLimit(_ bottomView: UIView)
 
 /**
@@ -280,7 +280,7 @@ class ScanHelperViewController: UIViewController, ScanHelperDelegate {
  @discussion
     None
  */
-@available(iOS 11.0, *)
+@available(iOS 13.0, *)
 @objc optional func scanUnrestrained(_ fullView: UIView)
 
 /**
@@ -290,7 +290,7 @@ class ScanHelperViewController: UIViewController, ScanHelperDelegate {
  @discussion
     None
  */
-@available(iOS 11.0, *)
+@available(iOS 13.0, *)
 @objc optional func scanCaptureOutput(_ brightnessValue: Double)
 
 /**
@@ -300,7 +300,7 @@ class ScanHelperViewController: UIViewController, ScanHelperDelegate {
  @discussion
     None
  */
-@available(iOS 11.0, *)
+@available(iOS 13.0, *)
 @objc optional func scanMetadataOutput(_ values: Array<ScanResult>)
 ```
 
@@ -314,11 +314,11 @@ class ScanHelperViewController: UIViewController, ScanHelperDelegate {
  @discussion
     None
  */
-@available(iOS 11.0, *)
+@available(iOS 13.0, *)
 @objc optional func torchFlash(open: Bool)
 ```
 
-### 4）识别照片内容api(可用于识别相册中二维码照片内容)
+### 4）识别照片内容api(可用于识别图片中二维码内容)
 
 ``` swift
 /**
@@ -336,7 +336,7 @@ class ScanHelperViewController: UIViewController, ScanHelperDelegate {
  @discussion
     None
  */
-@available(iOS 11.0, *)
+@available(iOS 13.0, *)
 @objc optional func detector(image: UIImage, ofType: String, context: CIContext?, options: [String : Any]?) -> [CIFeature]?
 ```
 
