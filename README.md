@@ -50,6 +50,7 @@
 |    isSingleFocu    |          bool           |        是否开启单点聚焦,默认false        |     开启     |    关闭    |
 |    isAutoFocus     |          bool           |        是否开启自动对焦,默认true         |     开启     |  关闭   |
 |    isAutoStop      |          bool           |        是否开启自动停止扫描,默认true         |     开启     |  关闭   |
+|    isFullScreenScan      |          bool           |  是否开启全屏扫描,默认false         |     开启     |  关闭   |
 |    isDoubleTap     |          bool           |        是否支持双击手势,默认true         |     支持     | 不支持  |
 |       isZoom       |          bool           |        是否支持缩放手势,默认true         |     支持     |  不支持 |
 |     isHasTorch     |          bool           |  是否支持光感检测,自动打开闪光灯,默认true  |     支持     |  不支持 |
@@ -234,9 +235,7 @@ class ScanHelperViewController: UIViewController, ScanHelperDelegate {
  @param supView
     The incoming parent view.
  @param scanConfig
-    ScanConfig (Default: ScanConfig()).     
- @param scanRegion
-    The valid scanning area. The default size is the same as that of the parent view.     
+    ScanConfig (Default: ScanConfig()).         
  @param scanType
     The  supported recognizable scanning types are the same as the system API by default.
  @param scanHandler
@@ -245,7 +244,7 @@ class ScanHelperViewController: UIViewController, ScanHelperDelegate {
     None
  */
 @available(iOS 13.0, *)
-@objc func start(supView: UIView, scanConfig: ScanConfig, scanRegion: CGRect, scanType: [AVMetadataObject.ObjectType], scanHandler: ((ScanResult) -> Void)?)
+@objc func start(supView: UIView, scanConfig: ScanConfig, scanType: [AVMetadataObject.ObjectType], scanHandler: ((ScanResult) -> Void)?)
 ```
 
 ``` swift

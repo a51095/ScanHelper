@@ -9,7 +9,7 @@ import UIKit
 import ScanHelperSDK
 
 class ScanHelperViewController: UIViewController, ScanHelperDelegate {
-    /// 让控制器持有scanHelper对象,不然会被提前释放
+    /// 让控制器持有scanHelper对象,不然会被自动释放
     private let scanHelper = ScanHelper()
     
     override func viewDidLoad() {
@@ -20,9 +20,10 @@ class ScanHelperViewController: UIViewController, ScanHelperDelegate {
     
     private func scan() {
         let config = ScanConfig()
-        config.sound = Bundle.main.path(forResource: "scan_audio", ofType: "wav")
+        config.isAutoStop = false
+        config.isFullScreenScan = true
         config.animationImage = UIImage(named: "scan_animation")
-//        config.isAutoStop = false
+        config.sound = Bundle.main.path(forResource: "scan_audio", ofType: "wav")
         scanHelper.start(supView: view, scanConfig: config) { [weak self] (res) in
             guard let self = self else { return }
             let result = res as ScanResult

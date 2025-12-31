@@ -3749,6 +3749,100 @@
           },
           {
             "kind": "Var",
+            "name": "isFullScreenScan",
+            "printedName": "isFullScreenScan",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Bool",
+                "printedName": "Swift.Bool",
+                "usr": "s:Sb"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "c:@M@ScanHelperSDK@objc(cs)ScanConfig(py)isFullScreenScan",
+            "mangledName": "$s13ScanHelperSDK0A6ConfigC012isFullScreenA0Sbvp",
+            "moduleName": "ScanHelperSDK",
+            "declAttributes": [
+              "HasInitialValue",
+              "HasStorage",
+              "AccessControl",
+              "ObjC",
+              "RawDocComment"
+            ],
+            "hasStorage": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Bool",
+                    "printedName": "Swift.Bool",
+                    "usr": "s:Sb"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "c:@M@ScanHelperSDK@objc(cs)ScanConfig(im)isFullScreenScan",
+                "mangledName": "$s13ScanHelperSDK0A6ConfigC012isFullScreenA0Sbvg",
+                "moduleName": "ScanHelperSDK",
+                "implicit": true,
+                "declAttributes": [
+                  "ObjC"
+                ],
+                "accessorKind": "get"
+              },
+              {
+                "kind": "Accessor",
+                "name": "Set",
+                "printedName": "Set()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Bool",
+                    "printedName": "Swift.Bool",
+                    "usr": "s:Sb"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "c:@M@ScanHelperSDK@objc(cs)ScanConfig(im)setIsFullScreenScan:",
+                "mangledName": "$s13ScanHelperSDK0A6ConfigC012isFullScreenA0Sbvs",
+                "moduleName": "ScanHelperSDK",
+                "implicit": true,
+                "declAttributes": [
+                  "ObjC"
+                ],
+                "accessorKind": "set"
+              },
+              {
+                "kind": "Accessor",
+                "name": "Modify",
+                "printedName": "Modify()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:13ScanHelperSDK0A6ConfigC012isFullScreenA0SbvM",
+                "mangledName": "$s13ScanHelperSDK0A6ConfigC012isFullScreenA0SbvM",
+                "moduleName": "ScanHelperSDK",
+                "implicit": true,
+                "accessorKind": "_modify"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
             "name": "brightnessMinValue",
             "printedName": "brightnessMinValue",
             "children": [
@@ -5058,7 +5152,7 @@
             "genericSig": "<τ_0_0 where τ_0_0 : ScanHelperSDK.ScanHelperDelegate>",
             "sugared_genericSig": "<Self where Self : ScanHelperSDK.ScanHelperDelegate>",
             "protocolReq": true,
-            "intro_iOS": "12.0",
+            "intro_iOS": "13.0",
             "declAttributes": [
               "Optional",
               "ObjC",
@@ -5092,7 +5186,7 @@
             "genericSig": "<τ_0_0 where τ_0_0 : ScanHelperSDK.ScanHelperDelegate>",
             "sugared_genericSig": "<Self where Self : ScanHelperSDK.ScanHelperDelegate>",
             "protocolReq": true,
-            "intro_iOS": "12.0",
+            "intro_iOS": "13.0",
             "declAttributes": [
               "Optional",
               "ObjC",
@@ -5126,7 +5220,7 @@
             "genericSig": "<τ_0_0 where τ_0_0 : ScanHelperSDK.ScanHelperDelegate>",
             "sugared_genericSig": "<Self where Self : ScanHelperSDK.ScanHelperDelegate>",
             "protocolReq": true,
-            "intro_iOS": "12.0",
+            "intro_iOS": "13.0",
             "declAttributes": [
               "Optional",
               "ObjC",
@@ -5168,7 +5262,7 @@
             "genericSig": "<τ_0_0 where τ_0_0 : ScanHelperSDK.ScanHelperDelegate>",
             "sugared_genericSig": "<Self where Self : ScanHelperSDK.ScanHelperDelegate>",
             "protocolReq": true,
-            "intro_iOS": "12.0",
+            "intro_iOS": "13.0",
             "declAttributes": [
               "Optional",
               "ObjC",
@@ -5372,7 +5466,7 @@
           {
             "kind": "Function",
             "name": "start",
-            "printedName": "start(supView:scanConfig:scanRegion:scanType:scanHandler:)",
+            "printedName": "start(supView:scanConfig:scanType:scanHandler:)",
             "children": [
               {
                 "kind": "TypeNominal",
@@ -5391,13 +5485,6 @@
                 "printedName": "ScanHelperSDK.ScanConfig",
                 "hasDefaultArg": true,
                 "usr": "c:@M@ScanHelperSDK@objc(cs)ScanConfig"
-              },
-              {
-                "kind": "TypeNominal",
-                "name": "CGRect",
-                "printedName": "CoreFoundation.CGRect",
-                "hasDefaultArg": true,
-                "usr": "c:@S@CGRect"
               },
               {
                 "kind": "TypeNominal",
@@ -5443,11 +5530,11 @@
               }
             ],
             "declKind": "Func",
-            "usr": "c:@CM@ScanHelperSDK@objc(cs)ScanHelper(im)startWithSupView:scanConfig:scanRegion:scanType:scanHandler:",
-            "mangledName": "$s13ScanHelperSDK0aB0C5start7supView10scanConfig0G6Region0G4Type0G7HandlerySo6UIViewC_AA0aH0CSo6CGRectVSaySo016AVMetadataObjectJ0aGyAA0A6ResultCcSgtF",
+            "usr": "c:@CM@ScanHelperSDK@objc(cs)ScanHelper(im)startWithSupView:scanConfig:scanType:scanHandler:",
+            "mangledName": "$s13ScanHelperSDK0aB0C5start7supView10scanConfig0G4Type0G7HandlerySo6UIViewC_AA0aH0CSaySo016AVMetadataObjectI0aGyAA0A6ResultCcSgtF",
             "moduleName": "ScanHelperSDK",
             "intro_iOS": "13.0",
-            "objc_name": "startWithSupView:scanConfig:scanRegion:scanType:scanHandler:",
+            "objc_name": "startWithSupView:scanConfig:scanType:scanHandler:",
             "declAttributes": [
               "Dynamic",
               "AccessControl",
@@ -6009,57 +6096,64 @@
     },
     {
       "filePath": "\/Users\/well\/Desktop\/ScanHelperSDK\/ScanHelperSDK\/ScanConfig.swift",
+      "kind": "BooleanLiteral",
+      "offset": 4307,
+      "length": 5,
+      "value": "false"
+    },
+    {
+      "filePath": "\/Users\/well\/Desktop\/ScanHelperSDK\/ScanHelperSDK\/ScanConfig.swift",
       "kind": "IntegerLiteral",
-      "offset": 4299,
+      "offset": 4508,
       "length": 2,
       "value": "-1"
     },
     {
       "filePath": "\/Users\/well\/Desktop\/ScanHelperSDK\/ScanHelperSDK\/ScanConfig.swift",
       "kind": "IntegerLiteral",
-      "offset": 4461,
+      "offset": 4670,
       "length": 1,
       "value": "6"
     },
     {
       "filePath": "\/Users\/well\/Desktop\/ScanHelperSDK\/ScanHelperSDK\/ScanConfig.swift",
       "kind": "BooleanLiteral",
-      "offset": 4699,
+      "offset": 4908,
       "length": 4,
       "value": "true"
     },
     {
       "filePath": "\/Users\/well\/Desktop\/ScanHelperSDK\/ScanHelperSDK\/ScanConfig.swift",
       "kind": "BooleanLiteral",
-      "offset": 5286,
+      "offset": 5495,
       "length": 4,
       "value": "true"
     },
     {
       "filePath": "\/Users\/well\/Desktop\/ScanHelperSDK\/ScanHelperSDK\/ScanConfig.swift",
       "kind": "BooleanLiteral",
-      "offset": 5562,
+      "offset": 5771,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/well\/Desktop\/ScanHelperSDK\/ScanHelperSDK\/ScanConfig.swift",
       "kind": "BooleanLiteral",
-      "offset": 5952,
+      "offset": 6161,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/well\/Desktop\/ScanHelperSDK\/ScanHelperSDK\/ScanConfig.swift",
       "kind": "BooleanLiteral",
-      "offset": 6050,
+      "offset": 6259,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/well\/Desktop\/ScanHelperSDK\/ScanHelperSDK\/ScanConfig.swift",
       "kind": "BooleanLiteral",
-      "offset": 6450,
+      "offset": 6659,
       "length": 4,
       "value": "true"
     },
@@ -6087,28 +6181,28 @@
     {
       "filePath": "\/Users\/well\/Desktop\/ScanHelperSDK\/ScanHelperSDK\/ScanHelper.swift",
       "kind": "BooleanLiteral",
-      "offset": 2056,
+      "offset": 2192,
       "length": 4,
       "value": "true"
     },
     {
       "filePath": "\/Users\/well\/Desktop\/ScanHelperSDK\/ScanHelperSDK\/ScanHelper.swift",
       "kind": "StringLiteral",
-      "offset": 2145,
+      "offset": 2281,
       "length": 22,
       "value": "\"userInteractiveQueue\""
     },
     {
       "filePath": "\/Users\/well\/Desktop\/ScanHelperSDK\/ScanHelperSDK\/ScanHelper.swift",
       "kind": "BooleanLiteral",
-      "offset": 3071,
+      "offset": 3207,
       "length": 4,
       "value": "true"
     },
     {
       "filePath": "\/Users\/well\/Desktop\/ScanHelperSDK\/ScanHelperSDK\/ScanHelper.swift",
       "kind": "Array",
-      "offset": 15591,
+      "offset": 15641,
       "length": 2,
       "value": "[]"
     }

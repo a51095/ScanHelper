@@ -1,7 +1,7 @@
 // swift-interface-format-version: 1.0
-// swift-compiler-version: Apple Swift version 6.2.1 effective-5.10 (swiftlang-6.2.1.4.8 clang-1700.4.4.1)
+// swift-compiler-version: Apple Swift version 6.2.3 effective-5.10 (swiftlang-6.2.3.3.21 clang-1700.6.3.2)
 // swift-module-flags: -target arm64-apple-ios13.0 -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -enable-experimental-feature DebugDescriptionMacro -enable-bare-slash-regex -module-name ScanHelperSDK
-// swift-module-flags-ignorable: -no-verify-emitted-module-interface -formal-cxx-interoperability-mode=off -interface-compiler-version 6.2.1
+// swift-module-flags-ignorable: -no-verify-emitted-module-interface -formal-cxx-interoperability-mode=off -interface-compiler-version 6.2.3
 import AVFoundation
 import Foundation
 import Swift
@@ -81,6 +81,7 @@ import _SwiftConcurrencyShims
   @objc public var isDoubleTap: Swift.Bool
   @objc public var isZoom: Swift.Bool
   @objc public var isHasTorch: Swift.Bool
+  @objc public var isFullScreenScan: Swift.Bool
   @objc public var brightnessMinValue: Swift.Double
   @objc public var brightnessMaxValue: Swift.Double
   @objc public var preset: AVFoundation.AVCaptureSession.Preset
@@ -112,13 +113,13 @@ import _SwiftConcurrencyShims
   @objc deinit
 }
 @objc public protocol ScanHelperDelegate : ObjectiveC.NSObjectProtocol {
-  @available(iOS 12.0, *)
+  @available(iOS 13.0, *)
   @objc optional func scanLimit(_ bottomView: UIKit.UIView)
-  @available(iOS 12.0, *)
+  @available(iOS 13.0, *)
   @objc optional func scanUnrestrained(_ fullView: UIKit.UIView)
-  @available(iOS 12.0, *)
+  @available(iOS 13.0, *)
   @objc optional func scanCaptureOutput(_ brightnessValue: Swift.Double)
-  @available(iOS 12.0, *)
+  @available(iOS 13.0, *)
   @objc optional func scanMetadataOutput(_ values: Swift.Array<ScanHelperSDK.ScanResult>)
 }
 @_inheritsConvenienceInitializers @objc public class ScanHelper : ObjectiveC.NSObject {
@@ -129,7 +130,7 @@ import _SwiftConcurrencyShims
 extension ScanHelperSDK.ScanHelper {
   #if compiler(>=5.3) && $NonescapableTypes
   @available(iOS 13.0, *)
-  @objc dynamic public func start(supView: UIKit.UIView, scanConfig: ScanHelperSDK.ScanConfig = ScanConfig(), scanRegion: CoreFoundation.CGRect = .zero, scanType: [AVFoundation.AVMetadataObject.ObjectType] = [], scanHandler: ((ScanHelperSDK.ScanResult) -> Swift.Void)? = nil)
+  @objc dynamic public func start(supView: UIKit.UIView, scanConfig: ScanHelperSDK.ScanConfig = ScanConfig(), scanType: [AVFoundation.AVMetadataObject.ObjectType] = [], scanHandler: ((ScanHelperSDK.ScanResult) -> Swift.Void)? = nil)
   #endif
   @available(iOS 13.0, *)
   @objc dynamic public func stop()
